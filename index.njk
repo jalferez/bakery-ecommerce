@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: "🍞 Bread of the Day"
+---
+
+{% for bread in collections.bread %}
+<div class="bread-card">
+  <img src="{{ bread.data.image }}" alt="{{ bread.data.title }}">
+  <div class="info">
+    <h2>{{ bread.data.title }}</h2>
+    <p>{{ bread.data.price }}</p>
+    <button class="snipcart-add-item"
+      data-item-id="{{ bread.fileSlug }}"
+      data-item-price="{{ bread.data.price | replace("$","") }}"
+      data-item-url="/"
+      data-item-name="{{ bread.data.title }}">
+      Add to Cart
+    </button>
+  </div>
+</div>
+{% endfor %}

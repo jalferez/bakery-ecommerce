@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+
+  <!-- Snipcart -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js" async></script>
+
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #fafafa; }
+    header {
+      background: #ff8c00;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .content {
+      margin: 2rem auto;
+      max-width: 900px;
+      padding: 1rem;
+    }
+
+    .bread-card {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    img { width: 100%; height: auto; }
+    .info { padding: 1rem; text-align: center; }
+    button {
+      background: #ff8c00;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { background: #e07b00; }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ff8c00;
+      color: white;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/buying/">Buying</a></li>
+        <li><a href="/auth/">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>{{ title }}</h1>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+  <p>© {{ "" | year }} My Bakery</p>
+
+  </footer>
+
+  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0"></div>
+</body>
+</html>
