@@ -1,21 +1,99 @@
 ---
 layout: layouts/base.njk
-title: "Bread of the Day!"
+title: Home
 ---
 
-{% for bread in collections.bread %}
-<div class="bread-card">
-  <img src="{{ bread.data.image }}" alt="{{ bread.data.title }}">
-  <div class="info">
-    <h2>{{ bread.data.title }}</h2>
-    <p>{{ bread.data.price }}</p>
-    <button class="snipcart-add-item"
-      data-item-id="{{ bread.fileSlug }}"
-      data-item-price="{{ bread.data.price | replace("$","") }}"
-      data-item-url="/"
-      data-item-name="{{ bread.data.title }}">
-      Add to Cart
-    </button>
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Welcome to Treetop Bakery</h1>
+    <p>
+      Freshly baked delights crafted with love and care every morning.  
+      From warm loaves to sweet pastries — taste the difference of
+      homemade perfection.
+    </p>
+    <a href="/menu/" class="btn-primary">View Menu</a>
   </div>
-</div>
-{% endfor %}
+</section>
+
+<section>
+  <!-- three_row.njk -->
+   {% include "partials/three_row.njk" %}
+</section>
+
+<style>
+  .hero {
+    height: 93vh; 
+    width: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.45)
+      ),
+      url("/images/zarla-bakery.webp") center center / cover no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .hero p {
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+ a.btn-primary {
+  display: inline-block;
+  background: #ffffff;
+  color: #2e7d32;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+a.btn-primary:hover {
+  background: #bfe6c2;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 90vh;
+      background-attachment: scroll; 
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+  }
+</style>
