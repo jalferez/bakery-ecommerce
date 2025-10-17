@@ -1,5 +1,5 @@
 ---
-title: Artisan Bread
+title: Artisan Baguette
 description: Golden and crusty on the outside, fluffy on the inside. The French
   classic, done right.
 image: /images/uploads/artisan_baguette.webp
