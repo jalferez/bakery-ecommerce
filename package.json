@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jalferez/bakery-ecommerce/issues"
+  },
+  "homepage": "https://github.com/jalferez/bakery-ecommerce#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2"
   }
