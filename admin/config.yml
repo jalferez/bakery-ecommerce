@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: jalferez/backery-ecommerce  # e.g. johnalferez/treetopbakery
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
