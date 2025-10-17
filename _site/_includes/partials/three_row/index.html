@@ -1,0 +1,174 @@
+<section class="three-row">
+  <div class="card">
+    <div class="card-image">
+      <img src="/images/sourdough1.jpg" alt="Fresh Sourdough Bread">
+    </div>
+    <div class="card-content">
+      <h3>Fresh Sourdough</h3>
+      <p>
+        Crispy on the outside, soft on the inside. Baked daily using our 12-hour fermentation process.
+      </p>
+      <div class="buttons">
+        <a href="/order/" class="btn-primary">Order Now</a>
+        <a href="/menu/" class="btn-secondary">Details</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image">
+      <img src="/images/Chocolate-Croissants.webp" alt="Chocolate Croissant">
+    </div>
+    <div class="card-content">
+      <h3>Chocolate Croissant</h3>
+      <p>
+        Flaky layers filled with rich Belgian chocolate, your perfect morning indulgence.
+      </p>
+      <div class="buttons">
+        <a href="/order/" class="btn-primary">Order Now</a>
+        <a href="/menu/" class="btn-secondary">Details</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-image">
+      <img src="/images/artisan_baguette.webp" alt="Artisan Baguette">
+    </div>
+    <div class="card-content">
+      <h3>Artisan Baguette</h3>
+      <p>
+        Golden and crusty on the outside, fluffy on the inside. The French classic, done right.
+      </p>
+      <div class="buttons">
+        <a href="/order/" class="btn-primary">Order Now</a>
+        <a href="/menu/" class="btn-secondary">Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+
+  .three-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 1rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .card-content h3 {
+    font-family: "Playfair Display", serif;
+    color: #2e7d32;
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-content p {
+    font-family: "Quicksand", sans-serif;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.6rem 1.3rem;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    transition: all 0.25s ease;
+  }
+
+  .btn-primary {
+    background: #2e7d32;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: #256428;
+  }
+
+  .btn-secondary {
+    background: #f5f5f5;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+  }
+
+  .btn-secondary:hover {
+    background: #e8f5e9;
+  }
+
+  /* Tablet & Desktop Layout */
+  @media (min-width: 768px) {
+    .card {
+      flex-direction: row;
+      height: 320px;
+    }
+
+    .card:nth-child(even) {
+      flex-direction: row-reverse; /* alternate image position */
+    }
+
+    .card-image,
+    .card-content {
+      flex: 1;
+      width: 50%;
+    }
+
+    .card-image img {
+      height: 100%;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      padding: 2rem;
+    }
+
+    .buttons {
+      justify-content: flex-start;
+    }
+  }
+</style>

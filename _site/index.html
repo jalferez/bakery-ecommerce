@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bread of the Day!</title>
-
-
-
+  <title>Home</title>
   <!-- Snipcart -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
   <!-- Font -->
@@ -15,90 +11,6 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js" async></script>
-
-  <style>
-    /* Global */
-    body {
-      font-family: "Quicksand", sans-serif;
-      margin: 0;
-      background: #fafaf7;
-      color: #333;
-    }
-
-    /* Content */
-    .content {
-      margin: 2rem auto;
-      max-width: 900px;
-      padding: 1rem;
-    }
-
-    .content h1 {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #2e7d32;
-      margin-bottom: 1.5rem;
-    }
-
-
-    .bread-card {
-      max-width: 400px;
-      margin: auto;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      border: 2px solid #e0f2f1;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
-    .info {
-      padding: 1rem;
-      text-align: center;
-    }
-
-    button {
-      background: linear-gradient(135deg, #43a047, #81c784);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.25s ease;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #388e3c, #66bb6a);
-    }
-
-    /* Small screens */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-    }
-
-    @media (max-width: 700px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-  </style>
-
 </head>
 
 <body>
@@ -127,7 +39,7 @@
 
   <style>
     header {
-      background: linear-gradient(135deg, #2e7d32, #66bb6a);
+      background: #004F2D;
       color: #fff;
       padding: 1rem 1.2rem;
       position: sticky;
@@ -327,27 +239,360 @@
   </script>
 </header>
 
-
-  <main class="content">
-    <h1>Bread of the Day!</h1>
+  <main>
     
-
-<div class="bread-card">
-  <img src="/images/uploads/blueberry-muffins.webp" alt="Blueberry Muffins">
-  <div class="info">
-    <h2>Blueberry Muffins</h2>
-    <p>2.00</p>
-    <button class="snipcart-add-item"
-      data-item-id="sourdough-bread"
-      data-item-price="2.00"
-      data-item-url="/"
-      data-item-name="Blueberry Muffins">
-      Add to Cart
-    </button>
+<section class="hero">
+  <div class="hero-overlay">
+    <h1>Welcome to Treetop Bakery</h1>
+    <p>
+      Freshly baked delights crafted with love and care every morning.  
+      From warm loaves to sweet pastries — taste the difference of
+      homemade perfection.
+    </p>
+    <a href="/menu/" class="btn-primary">View Menu</a>
   </div>
-</div>
+</section>
+
+<section>
+  <!-- three_row.njk -->
+   <section class="three-row">
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/sourdough1.jpg" alt="Fresh Sourdough">
+        </div>
+        <div class="card-content">
+            <h3>Fresh Sourdough</h3>
+            <p>Crispy on the outside, soft on the inside. Baked daily using our 12-hour fermentation process.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/Chocolate-Croissants.webp" alt="Chocolate Croissant">
+        </div>
+        <div class="card-content">
+            <h3>Chocolate Croissant</h3>
+            <p>Flaky layers filled with rich Belgian chocolate, your perfect morning indulgence.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/artisan_baguette.webp" alt="Artisan Baguette">
+        </div>
+        <div class="card-content">
+            <h3>Artisan Baguette</h3>
+            <p>Golden and crusty on the outside, fluffy on the inside. The French classic, done right.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<style>
+    /* Card layout Mobile First */
+    .three-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 4rem auto;
+        padding: 1rem;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .card-content h3 {
+        font-family: "Playfair Display", serif;
+        color: #2e7d32;
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .card-content p {
+        font-family: "Quicksand", sans-serif;
+        color: #444;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Button Wrapper */
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ddd;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        padding: 1rem 0;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0;
+        background: #f8f8f8;
+        color: #2e7d32;
+        transition:
+            background 0.3s ease,
+            color 0.3s ease,
+            transform 0.25s ease;
+        outline: none;
+    }
+
+    .primary-btn+.secondary-btn {
+        border-left: 1px solid #ddd;
+    }
+
+    .primary-btn {
+        background: #ffffff;
+    }
+
+    .primary-btn .icon {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 0.4rem;
+        filter: invert(26%) sepia(72%) saturate(322%) hue-rotate(80deg) brightness(90%) contrast(90%);
+
+    }
+
+    .primary-btn:hover {
+        background: #6BAA75;
+        color: #1b5e20;
+        transform: translateY(-3px);
+    }
+
+    .secondary-btn {
+        background: #f5f5f5;
+    }
+
+    .secondary-btn:hover {
+        background: #6BAA75;
+        color: #1b5e20;
+        transform: translateY(-3px);
+    }
+
+    /* ICONS */
+    .icon {
+        margin-bottom: 0.4rem;
+        color: #2e7d32;
+        stroke-width: 2;
+    }
+
+    /* Media */
+    @media (min-width: 768px) {
+        .card {
+            flex-direction: row;
+            height: 320px;
+        }
+
+        .card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .card-image,
+        .card-content {
+            flex: 1;
+            width: 50%;
+        }
+
+        .card-image img {
+            height: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            padding: 2rem;
+        }
+
+        .card-buttons {
+            justify-content: stretch;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .icon {
+            margin: 0;
+        }
+    }
+</style>
+</section>
+
+<style>
+  .hero {
+    height: 93vh; 
+    width: 100%;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.45)
+      ),
+      url("/images/zarla-bakery.webp") center center / cover no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .hero p {
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+ a.btn-primary {
+  display: inline-block;
+  background: #ffffff;
+  color: #2e7d32;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: "Quicksand", sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+a.btn-primary:hover {
+  background: #bfe6c2;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 90vh;
+      background-attachment: scroll; 
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+  }
+</style>
 
   </main>
+
 
   <footer>
   <div class="footer-container">
@@ -385,7 +630,7 @@
     }
 
     footer {
-      background: linear-gradient(135deg, #2e7d32, #66bb6a);
+      background: #502419;
       color: #ffffff;
       padding: 2rem 1rem;
       margin-top: auto; 
