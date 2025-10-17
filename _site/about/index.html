@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bread of the Day!</title>
+  <title>About Us</title>
 
 
 
@@ -117,9 +117,9 @@
     </div>
 
     <ul class="nav-links" id="nav-links">
-      <li><a href="/" class="active">HOME</a></li>
+      <li><a href="/" class="">HOME</a></li>
       <li><a href="/menu/" class="">MENU</a></li>
-      <li><a href="/about/" class="">ABOUT</a></li>
+      <li><a href="/about/" class="active">ABOUT</a></li>
       <li><a href="/catering/" class="">CATERING</a></li>
       <li><a href="/order/" class="order-btn ">ORDER NOW</a></li>
     </ul>
@@ -329,23 +329,110 @@
 
 
   <main class="content">
-    <h1>Bread of the Day!</h1>
+    <h1>About Us</h1>
     
-
-<div class="bread-card">
-  <img src="/images/uploads/blueberry-muffins.webp" alt="Blueberry Muffins">
-  <div class="info">
-    <h2>Blueberry Muffins</h2>
-    <p>2.00</p>
-    <button class="snipcart-add-item"
-      data-item-id="sourdough-bread"
-      data-item-price="2.00"
-      data-item-url="/"
-      data-item-name="Blueberry Muffins">
-      Add to Cart
-    </button>
+<section class="about-section">
+  <div class="about-intro">
+    <h2>Our Story</h2>
+    <p>
+      Nestled among the trees of our community, <strong>Treetop Bakery</strong> began with a simple idea —
+      to bake bread that feels like home. We believe that every loaf, pastry, and cookie carries the warmth
+      of nature and the joy of sharing.
+    </p>
   </div>
-</div>
+
+  <div class="about-img">
+    <img src="/images/uploads/bakery-interior.jpg" alt="Inside Treetop Bakery" />
+  </div>
+
+  <div class="about-mission">
+    <h2>Our Mission</h2>
+    <p>
+      From hand-crafted sourdoughs to freshly baked croissants, we use only the finest natural ingredients.
+      Our goal is to bring people together — one loaf at a time — while staying true to our roots in
+      sustainability and community.
+    </p>
+  </div>
+
+  <div class="about-values">
+    <h2>What We Stand For</h2>
+    <ul>
+      <li>🌿 Sustainability — eco-friendly ingredients and packaging</li>
+      <li>❤️ Passion — everything baked with care</li>
+      <li>🤝 Community — supporting local farmers and families</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .about-section h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+
+  .about-intro, .about-mission, .about-values {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-intro p,
+  .about-mission p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: center;
+    color: #444;
+  }
+
+  .about-img {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .about-values ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .about-values li {
+    background: #e8f5e9;
+    color: #2e7d32;
+    display: inline-block;
+    margin: 0.4rem;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.1);
+  }
+
+  @media (max-width: 600px) {
+    .about-section {
+      padding: 1rem;
+    }
+    .about-values li {
+      display: block;
+      margin: 0.5rem auto;
+      width: 90%;
+    }
+  }
+</style>
 
   </main>
 
