@@ -7,9 +7,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("admin");
 
  
-  eleventyConfig.addCollection("bread", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("content/bread/*.md");
-  });
+ eleventyConfig.addCollection("featured", function(collectionApi) {
+  return collectionApi.getFilteredByGlob("content/featured/*.md");
+});
+
 
   return {
     dir: {
