@@ -6,6 +6,7 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  # Existing Bread Collection
   - name: "bread"
     label: "Bread of the Day"
     folder: "content/bread"
@@ -16,3 +17,18 @@ collections:
       - { label: "Price", name: "price", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Date", name: "date", widget: "datetime" }
+
+  - name: "featured"
+    label: "Home Page - Featured Cards"
+    folder: "content/featured"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Order Link", name: "order_link", widget: "string" }
+      - { label: "Order Button Text", name: "order_label", widget: "string" }
+      - { label: "Details Link", name: "details_link", widget: "string" }
+      - { label: "Details Button Text", name: "details_label", widget: "string" }
+
