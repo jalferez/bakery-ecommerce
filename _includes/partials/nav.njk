@@ -1,0 +1,223 @@
+<header>
+  <nav class="navbar">
+    <div class="nav-header">
+      <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
+
+      <!-- Hamburger button -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">HOME</a></li>
+      <li><a href="/menu/" class="{% if '/menu/' in page.url %}active{% endif %}">MENU</a></li>
+      <li><a href="/about/" class="{% if '/about/' in page.url %}active{% endif %}">ABOUT</a></li>
+      <li><a href="/catering/" class="{% if '/catering/' in page.url %}active{% endif %}">CATERING</a></li>
+      <li><a href="/order/" class="order-btn {% if '/order/' in page.url %}active{% endif %}">ORDER NOW</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    header {
+      background: linear-gradient(135deg, #2e7d32, #66bb6a);
+      color: #fff;
+      padding: 1rem 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      font-family: "Playfair Display", serif;
+      line-height: 1.1;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.35s ease, opacity 0.25s ease;
+      transform-origin: center;
+      margin: 0;
+
+    }
+
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      visibility: hidden;
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s ease;
+    }
+
+
+    .nav-links.active {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .nav-links li {
+      margin: 0.6rem 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c8e6c9;
+    }
+
+    .order-btn {
+      background: #004d22;
+      color: #2e7d32;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand span {
+        display: inline;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+    flex-direction: row;
+    gap: 1.5rem;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav-links a {
+    position: relative;
+    padding-bottom: 4px; 
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #66bb6a; 
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+    }
+    @media (min-width: 1024px) {
+  .navbar {
+    max-width: 1100px;     
+    margin: 0 auto;        
+    padding: 0 1.5rem;     
+  }
+
+  .brand {
+    font-size: 1.75rem;    
+  }
+
+  .nav-links {
+    gap: 2rem;             
+    font-size: 1.1rem;      
+  }
+}
+  </style>
+
+  <script>
+    const toggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      toggle.classList.toggle("open");
+    });
+  </script>
+</header>
