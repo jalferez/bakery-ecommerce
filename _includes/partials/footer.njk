@@ -1,0 +1,100 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <h3 class="footer-brand">TREETOP BAKERY</h3>
+      <p>Baked with love, rooted in flavor 🌿</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/menu/">Menu</a>
+      <a href="/about/">About</a>
+      <a href="/catering/">Catering</a>
+      <a href="/order/">Order Now</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© {{ "" | year }} Treetop Bakery. Brought to Life by <a href="https://jalferez.netlify.app/">JA</a></p>
+  </div>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #2e7d32, #66bb6a);
+      color: #ffffff;
+      padding: 2rem 1rem;
+      margin-top: auto; 
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .footer-left h3 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-left p {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      color: #e8f5e9;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #c8e6c9;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 700px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</footer>
