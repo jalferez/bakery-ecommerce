@@ -1,37 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Content Manager</title>
-
-    <!--  Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </head>
-  <body>
-    <!--  Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
-
-    <!--  Invite and login handling -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (window.netlifyIdentity) {
-          // Force the widget to initialize
-          window.netlifyIdentity.init();
-
-          //  Automatically open the modal if there's an invite token in the URL
-          if (window.location.hash && window.location.hash.includes("invite_token")) {
-            console.log("Invite token detected — opening Netlify Identity modal...");
-            window.netlifyIdentity.open("signup");
-          }
-
-          // Redirect to /admin/ after successful login
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        } else {
-          console.error(" Netlify Identity not loaded.");
-        }
-      });
-    </script>
-  </body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Content Manager</title>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
+</body>
 </html>
