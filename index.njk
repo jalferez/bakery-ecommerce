@@ -5,11 +5,10 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
 
 <section class="hero">
   <div class="hero-overlay">
-    <h1>Welcome to Treetop Bakery</h1>
+    <h1>PURE JOY, <br> BAKED IN</h1>
     <p>
       Freshly baked delights crafted with love and care every morning.  
-      From warm loaves to sweet pastries — taste the difference of
-      homemade perfection.
+      From warm loaves to sweet pastries, all rooted from our passion for life.
     </p>
     <a href="/menu/" class="btn-primary">View Menu</a>
   </div>
@@ -20,6 +19,17 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
    {% include "partials/three_row.njk" %}
 </section>
 
+
+
+<section>
+  {% include "partials/rewards_card.njk" %}
+</section>
+
+
+
+
+
+
 <style>
   .hero {
     height: 93vh; 
@@ -28,7 +38,7 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
         rgba(0, 0, 0, 0.35),
         rgba(0, 0, 0, 0.45)
       ),
-      url("/images/zarla-bakery.webp") center center / cover no-repeat;
+      url("/images/bakery_shop.webp") center center / cover no-repeat;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -38,18 +48,22 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
     overflow: hidden;
   }
 
-  .hero-overlay {
-    max-width: 800px;
-    padding: 1rem;
-    z-index: 2;
-  }
+  /* 1. move the overlay up a touch */
+.hero-overlay {
+  max-width: 800px;
+  padding: 1rem;
+  z-index: 2;
+  transform: translateY(-2rem);   /* ↑↑  shift upward  */
+}
 
-  .hero h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-  }
+/* 2. exaggerated, clamp-driven H1 */
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem); /* 2.8 → 6.5 */
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.05;
+}
 
   .hero p {
     font-family: "Quicksand", sans-serif;
