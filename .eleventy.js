@@ -6,6 +6,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("admin");
 
+  eleventyConfig.addCollection("homebg", function (collectionApi) {
+  return collectionApi.getFilteredByGlob("./content/homebg/*.md");
+});
  
  eleventyConfig.addCollection("featured", function(collectionApi) {
   return collectionApi.getFilteredByGlob("content/featured/*.md");

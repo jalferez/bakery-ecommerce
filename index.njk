@@ -3,16 +3,19 @@ layout: layouts/base.njk
 title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
 ---
 
-<section class="hero">
+{% set hero = collections.homebg | first %}
+<section class="hero"
+  style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('{{ hero.data.bg_image }}');
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;">
   <div class="hero-overlay">
-    <h1>PURE JOY, <br> BAKED IN</h1>
-    <p>
-      Freshly baked delights crafted with love and care every morning.  
-      From warm loaves to sweet pastries, all rooted from our passion for life.
-    </p>
+    <h1>{{ hero.data.heading | safe }}</h1>
+    <p>{{ hero.data.subtext }}</p>
     <a href="/menu/" class="btn-primary">View Menu</a>
   </div>
 </section>
+
 
 <section>
   <!-- three_row.njk -->
@@ -37,8 +40,7 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
     background: linear-gradient(
         rgba(0, 0, 0, 0.35),
         rgba(0, 0, 0, 0.45)
-      ),
-      url("/images/bakery_shop.webp") center center / cover no-repeat;
+      );
     color: #fff;
     display: flex;
     justify-content: center;
