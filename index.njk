@@ -3,9 +3,10 @@ layout: layouts/base.njk
 title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
 ---
 
+
+
 {% set hero = collections.homebg | first %}
-<section class="hero"
-  style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('{{ hero.data.bg_image }}');
+<section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('{{ hero.data.bg_image }}');
          background-position: center;
          background-size: cover;
          background-repeat: no-repeat;">
@@ -18,8 +19,7 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
 
 
 <section>
-  <!-- three_row.njk -->
-   {% include "partials/three_row.njk" %}
+  {% include "partials/three_row.njk" %}
 </section>
 
 
@@ -29,18 +29,20 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
 </section>
 
 
+<section>
+  {% include "partials/services_overview.njk" %}
+</section>
 
-
-
+<section>
+  {% include "partials/welcome_section.njk" %}
+</section>
 
 <style>
   .hero {
-    height: 93vh; 
+    height: 93vh;
     width: 100%;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.35),
-        rgba(0, 0, 0, 0.45)
-      );
+    background: linear-gradient(rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.45));
     color: #fff;
     display: flex;
     justify-content: center;
@@ -50,22 +52,22 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
     overflow: hidden;
   }
 
-  /* 1. move the overlay up a touch */
-.hero-overlay {
-  max-width: 800px;
-  padding: 1rem;
-  z-index: 2;
-  transform: translateY(-2rem);   /* ↑↑  shift upward  */
-}
 
-/* 2. exaggerated, clamp-driven H1 */
-.hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem); /* 2.8 → 6.5 */
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-  line-height: 1.05;
-}
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+    transform: translateY(-2rem);
+  }
+
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
 
   .hero p {
     font-family: "Quicksand", sans-serif;
@@ -74,34 +76,34 @@ title: TreeTop Bakery Houston TX | Fresh Baked Goods & Pastries
     margin-bottom: 2.5rem;
   }
 
- a.btn-primary {
-  display: inline-block;
-  background: #ffffff;
-  color: #2e7d32;
-  padding: 0.9rem 2rem;
-  border-radius: 30px;
-  font-weight: 700;
-  text-decoration: none;
-  font-family: "Quicksand", sans-serif;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  transition:
-    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
-    box-shadow 0.35s ease,
-    background 0.35s ease;
-}
+  a.btn-primary {
+    display: inline-block;
+    background: #ffffff;
+    color: #2e7d32;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition:
+      transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+      box-shadow 0.35s ease,
+      background 0.35s ease;
+  }
 
-a.btn-primary:hover {
-  background: #bfe6c2;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
+  a.btn-primary:hover {
+    background: #bfe6c2;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
 
 
 
   @media (max-width: 768px) {
     .hero {
       height: 90vh;
-      background-attachment: scroll; 
+      background-attachment: scroll;
     }
 
     .hero h1 {
