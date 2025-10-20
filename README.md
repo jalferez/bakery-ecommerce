@@ -1,9 +1,9 @@
-# 🧁 Treetop Bakery — Local Bakery eCommerce Website  
+# Treetop Bakery — Local Bakery eCommerce Website  
 **Status:** _Early Development — Actively Being Worked On_  
 
 ---
 
-## 🏡 Description  
+## Description  
 Treetop Bakery is a **local bakery eCommerce website** built to combine the warmth of a neighborhood bakery with the convenience of modern online ordering.  
 The goal is to allow customers to **browse, order, and pay online** for pickup or local delivery — all through a clean, fast, and user-friendly interface.  
 
@@ -78,20 +78,20 @@ The project emphasizes **design quality**, **performance**, and **maintainabilit
 
 ---
 
-## 🧠 Author  
+## Author  
 **John Alferez**  
 Developer & Designer passionate about accessible and affordable web experiences.  
 📍 Based in Houston, TX  
 
 ---
 
-## 🏷️ License  
+## License  
 This project is currently under development and not yet licensed for public distribution.  
 For inquiries, contact the author directly.
 
 ---
 
-## 🌟 Acknowledgements  
+## Acknowledgements  
 - [Eleventy](https://www.11ty.dev/)  
 - [Netlify](https://www.netlify.com/)  
 - [Decap CMS](https://decapcms.org/)  
