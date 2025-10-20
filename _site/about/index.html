@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,23 +9,26 @@
   <!-- Snipcart -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
   <!-- Font -->
-  
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js" async></script>
 
 
- <style>
-  body {
-  font-family: "Sora", sans-serif;
-}
+  <style>
+    body {
+      font-family: "Sora", sans-serif;
+    }
 
- </style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
+  <header id="site-header">
   <nav class="navbar">
     <div class="nav-header">
       <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
@@ -47,15 +51,27 @@
   </nav>
 
   <style>
-    header {
-      background: #004F2D;
+    /* --- NEW: transparent + blur before scroll, solid after scroll --- */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 79, 45, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
       color: #fff;
       padding: 1rem 1.2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-sizing: border-box;
     }
 
+    #site-header.scrolled {
+      background: #004F2D;
+      backdrop-filter: none;
+    }
+
+    /* --- end of new rules --- */
 
     .navbar {
       position: relative;
@@ -64,13 +80,11 @@
       gap: 1rem;
     }
 
-
     .nav-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
 
     .brand {
       font-size: 1.5rem;
@@ -84,7 +98,6 @@
     .brand span {
       display: block;
     }
-
 
     .menu-toggle {
       display: flex;
@@ -102,12 +115,10 @@
       height: 4px;
       background: #fff;
       border-radius: 2px;
-      transition: transform 0.35s ease, opacity 0.25s ease;
+      transition: transform .35s ease, opacity .25s ease;
       transform-origin: center;
       margin: 0;
-
     }
-
 
     .menu-toggle.open span:nth-child(1) {
       transform: translateY(9px) rotate(45deg);
@@ -121,8 +132,6 @@
       transform: translateY(-9px) rotate(-45deg);
     }
 
-
-
     .nav-links {
       list-style: none;
       margin: 0;
@@ -135,12 +144,8 @@
       opacity: 0;
       transform: translateY(-8px);
       visibility: hidden;
-      transition:
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        visibility 0.5s ease;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
     }
-
 
     .nav-links.active {
       max-height: 500px;
@@ -150,15 +155,15 @@
     }
 
     .nav-links li {
-      margin: 0.6rem 0;
+      margin: .6rem 0;
     }
 
     .nav-links a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: color 0.2s ease;
+      letter-spacing: .5px;
+      transition: color .2s ease;
     }
 
     .nav-links a:hover {
@@ -168,7 +173,7 @@
     .order-btn {
       background: #004d22;
       color: #2e7d32;
-      padding: 0.5rem 1.2rem;
+      padding: .5rem 1.2rem;
       border-radius: 25px;
       font-weight: 700;
     }
@@ -180,12 +185,12 @@
         align-items: center;
       }
 
-      .brand{
+      .brand {
         font-size: 1.3rem;
       }
+
       .brand span {
         display: inline;
-        
       }
 
       .menu-toggle {
@@ -193,61 +198,68 @@
       }
 
       .nav-links {
-    flex-direction: row;
-    gap: 1.5rem;
-    max-height: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
+        flex-direction: row;
+        gap: 1.5rem;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
 
-  .nav-links a {
-    position: relative;
-    padding-bottom: 4px; 
-  }
+      .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+      }
 
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #66bb6a; 
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #66bb6a;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+      }
 
-  .nav-links a:hover::after {
-    transform: scaleX(1);
-  }
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
     }
+
     @media (min-width: 1024px) {
-  .navbar {
-    max-width: 1100px;     
-    margin: 0 auto;        
-    padding: 0 1.5rem;     
-  }
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
 
-  .brand {
-    font-size: 1.75rem;    
-  }
+      .brand {
+        font-size: 1.75rem;
+      }
 
-  .nav-links {
-    gap: 2rem;             
-    font-size: 1.1rem;      
-  }
-}
+      .nav-links {
+        gap: 2rem;
+        font-size: 1.1rem;
+      }
+    }
   </style>
 
   <script>
-    const toggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+    /* hamburger toggle (unchanged) */
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
 
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      toggle.classList.toggle("open");
+    /* scroll behaviour: add/remove .scrolled class */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 0);
     });
   </script>
 </header>
@@ -363,25 +375,43 @@
   <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <h3 class="footer-brand">TREETOP BAKERY</h3>
+      <img src="/images/treetop_logo_transparent.png" alt="Treetop Bakery Logo" class="footer-logo">
       <p>Baked with love, rooted in flavor 🌿</p>
     </div>
 
     <div class="footer-links">
+      <p class="quick-links">QUICK LINKS</p>
       <a href="/">Home</a>
       <a href="/menu/">Menu</a>
       <a href="/about/">About</a>
       <a href="/catering/">Catering</a>
       <a href="/order/">Order Now</a>
     </div>
+
+    <!-- Socials now below links -->
+    <div class="footer-socials">
+      <p class="connect-text">Connect with us</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" class="social-circle"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="social-circle"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Twitter" class="social-circle"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2025 Treetop Bakery. Brought to Life by <a href="https://jalferez.netlify.app/">JA</a></p>
+    <p>© 2025 Treetop Bakery. Brought to Life by
+      <a href="https://jalferez.netlify.app/">JA</a>
+    </p>
   </div>
 
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/0d0855f2a4.js" crossorigin="anonymous"></script>
+
   <style>
-    html, body {
+    html,
+    body {
       height: 100%;
       margin: 0;
     }
@@ -399,7 +429,7 @@
       background: #502419;
       color: #ffffff;
       padding: 2rem 1rem;
-      margin-top: auto; 
+      margin-top: auto;
     }
 
     .footer-container {
@@ -413,24 +443,33 @@
       gap: 1.5rem;
     }
 
-    .footer-left h3 {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.5px;
+    /* Logo */
+    .footer-logo {
+      width: 270px;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
     }
 
     .footer-left p {
       margin-top: 0.5rem;
       font-weight: 400;
-      font-size: 0.95rem;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.6rem);
       color: #e8f5e9;
+    }
+
+    .quick-links {
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.7vw + 0.8rem, 1.4rem);
     }
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
       justify-content: center;
     }
 
@@ -439,20 +478,69 @@
       text-decoration: none;
       font-weight: 600;
       transition: color 0.2s ease;
+      font-size: clamp(1rem, 0.8vw + 0.6rem, 1.3rem);
     }
 
     .footer-links a:hover {
       color: #c8e6c9;
     }
 
+    /* Socials section */
+    .footer-socials {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .connect-text {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.9vw + 0.7rem, 1.5rem);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .social-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: clamp(34px, 2.5vw + 20px, 50px);
+      height: clamp(34px, 2.5vw + 20px, 50px);
+      border-radius: 50%;
+      background-color: #3b1b14;
+      color: #ffffff;
+      font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1.3rem);
+      transition: all 0.3s ease;
+    }
+
+    .social-circle:hover {
+      background-color: #7b3f29;
+      transform: translateY(-3px);
+    }
+
+    /* Footer bottom */
     .footer-bottom {
       text-align: center;
       margin-top: 2rem;
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 0.6vw + 0.5rem, 1rem);
       opacity: 0.9;
     }
 
-    @media (max-width: 700px) {
+    .footer-bottom a {
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 796px) {
       .footer-container {
         flex-direction: column;
         text-align: center;
@@ -460,7 +548,6 @@
     }
   </style>
 </footer>
-
 
   <!-- public key doesnt matter rn -->
   <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0">
