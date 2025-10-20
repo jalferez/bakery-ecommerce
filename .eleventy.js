@@ -2,6 +2,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("videos");
+
 
 
   eleventyConfig.addPassthroughCopy("admin");
