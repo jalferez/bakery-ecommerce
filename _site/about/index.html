@@ -51,7 +51,6 @@
   </nav>
 
   <style>
-    /* --- NEW: transparent + blur before scroll, solid after scroll --- */
     #site-header {
       position: fixed;
       top: 0;
@@ -71,7 +70,7 @@
       backdrop-filter: none;
     }
 
-    /* --- end of new rules --- */
+
 
     .navbar {
       position: relative;
@@ -248,7 +247,7 @@
   </style>
 
   <script>
-    /* hamburger toggle (unchanged) */
+
     const toggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
     toggle.addEventListener('click', () => {
@@ -256,7 +255,7 @@
       toggle.classList.toggle('open');
     });
 
-    /* scroll behaviour: add/remove .scrolled class */
+
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 0);
@@ -388,7 +387,7 @@
       <a href="/order/">Order Now</a>
     </div>
 
-    <!-- Socials now below links -->
+
     <div class="footer-socials">
       <p class="connect-text">Connect with us</p>
       <div class="social-icons">
