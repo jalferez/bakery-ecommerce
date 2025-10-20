@@ -1,7 +1,7 @@
 ---
-title: "Classic Glazed Donut"
-price: 2.50
-description: "Soft yeast donut dipped in our signature vanilla glaze."
-image: /images/classic-glazed.webp
-category: "Donut"
+title: Strawberry Rainbow Sprinkles Donut
+price: 2.5
+description: Soft yeast donut dipped in our signature vanilla glaze.
+image: /images/uploads/donut-1761520_1280.jpg
+category: Donut
 ---
