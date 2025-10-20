@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/treetopbakery-favicon.ico" type="image/x-icon" />
+  <title>Menu</title>
+  <!-- Snipcart -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <!-- Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js" async></script>
+
+
+  <style>
+    body {
+      font-family: "Sora", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="site-header">
+  <nav class="navbar">
+    <div class="nav-header">
+      <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
+
+      <!-- Hamburger button -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="">HOME</a></li>
+      <li><a href="/menu/" class="active">MENU</a></li>
+      <li><a href="/about/" class="">ABOUT</a></li>
+      <li><a href="/catering/" class="">CATERING</a></li>
+      <li><a href="/order/" class="order-btn ">ORDER NOW</a></li>
+    </ul>
+  </nav>
+
+  <style>
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 79, 45, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
+      color: #fff;
+      padding: 1rem 1.2rem;
+      box-sizing: border-box;
+    }
+
+    #site-header.scrolled {
+      background: #004F2D;
+      backdrop-filter: none;
+    }
+
+
+
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      font-family: "Playfair Display", serif;
+      line-height: 1.1;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .35s ease, opacity .25s ease;
+      transform-origin: center;
+      margin: 0;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      visibility: hidden;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
+    }
+
+    .nav-links.active {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .nav-links li {
+      margin: .6rem 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .5px;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c8e6c9;
+    }
+
+    .order-btn {
+      background: #004d22;
+      color: #2e7d32;
+      padding: .5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-size: 1.3rem;
+      }
+
+      .brand span {
+        display: inline;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #66bb6a;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+      }
+
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .brand {
+        font-size: 1.75rem;
+      }
+
+      .nav-links {
+        gap: 2rem;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+  <script>
+
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
+
+
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 0);
+    });
+  </script>
+</header>
+
+  <main>
+    
+<section class="menu-page">
+  <div class="container">
+    <h1 class="menu-title">Our Menu</h1>
+    <p class="menu-subtitle">Freshly baked delights made daily. Choose your favorite treat!</p>
+
+    
+    
+    
+      <section class="menu-category">
+        <h2>Cakes</h2>
+        <div class="menu-grid">
+          
+            
+              <div class="menu-item">
+                <img src="/images/chocolate-cake.jpg" alt="Chocolate Cake" loading="lazy">
+                <h3>Chocolate Cake</h3>
+                <p>Rich chocolate cake with smooth frosting.</p>
+                <p class="price">$5.5</p>
+                <button
+                  class="snipcart-add-item"
+                  data-item-id="chocolate-cake"
+                  data-item-name="Chocolate Cake"
+                  data-item-price="5.5"
+                  data-item-url="/menu/"
+                  data-item-image="/images/chocolate-cake.jpg">
+                  Add to Cart
+                </button>
+              </div>
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      </section>
+    
+      <section class="menu-category">
+        <h2>Pastrys</h2>
+        <div class="menu-grid">
+          
+            
+          
+            
+              <div class="menu-item">
+                <img src="/images/butter-croissant.webp" alt="Butter Croissant" loading="lazy">
+                <h3>Butter Croissant</h3>
+                <p>Flaky, golden, and buttery — baked fresh every morning.</p>
+                <p class="price">$3</p>
+                <button
+                  class="snipcart-add-item"
+                  data-item-id="butter-croissant"
+                  data-item-name="Butter Croissant"
+                  data-item-price="3"
+                  data-item-url="/menu/"
+                  data-item-image="/images/butter-croissant.webp">
+                  Add to Cart
+                </button>
+              </div>
+            
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      </section>
+    
+      <section class="menu-category">
+        <h2>Donuts</h2>
+        <div class="menu-grid">
+          
+            
+          
+            
+          
+            
+              <div class="menu-item">
+                <img src="/images/classic-glazed.webp" alt="Classic Glazed Donut" loading="lazy">
+                <h3>Classic Glazed Donut</h3>
+                <p>Soft yeast donut dipped in our signature vanilla glaze.</p>
+                <p class="price">$2.5</p>
+                <button
+                  class="snipcart-add-item"
+                  data-item-id="classic-glazed"
+                  data-item-name="Classic Glazed Donut"
+                  data-item-price="2.5"
+                  data-item-url="/menu/"
+                  data-item-image="/images/classic-glazed.webp">
+                  Add to Cart
+                </button>
+              </div>
+            
+          
+            
+          
+            
+          
+        </div>
+      </section>
+    
+      <section class="menu-category">
+        <h2>Savorys</h2>
+        <div class="menu-grid">
+          
+            
+          
+            
+          
+            
+          
+            
+              <div class="menu-item">
+                <img src="/images/spinach-feta-puff.webp" alt="Spinach &amp; Feta Puff" loading="lazy">
+                <h3>Spinach &amp; Feta Puff</h3>
+                <p>Crispy puff pastry filled with creamy feta cheese and sautéed spinach.</p>
+                <p class="price">$4.25</p>
+                <button
+                  class="snipcart-add-item"
+                  data-item-id="spinach-feta-puff"
+                  data-item-name="Spinach &amp; Feta Puff"
+                  data-item-price="4.25"
+                  data-item-url="/menu/"
+                  data-item-image="/images/spinach-feta-puff.webp">
+                  Add to Cart
+                </button>
+              </div>
+            
+          
+            
+          
+        </div>
+      </section>
+    
+      <section class="menu-category">
+        <h2>Beverages</h2>
+        <div class="menu-grid">
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              <div class="menu-item">
+                <img src="/images/iced-latte.webp" alt="Iced Latte" loading="lazy">
+                <h3>Iced Latte</h3>
+                <p>Espresso poured over ice with creamy milk — simple, smooth, and refreshing.</p>
+                <p class="price">$4.5</p>
+                <button
+                  class="snipcart-add-item"
+                  data-item-id="iced-latte"
+                  data-item-name="Iced Latte"
+                  data-item-price="4.5"
+                  data-item-url="/menu/"
+                  data-item-image="/images/iced-latte.webp">
+                  Add to Cart
+                </button>
+              </div>
+            
+          
+        </div>
+      </section>
+    
+  </div>
+</section>
+
+<style>
+  .menu-page {
+    padding: 4rem 2rem;
+    background: #fffdf9;
+  }
+
+  .menu-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+    color: #4b2e05;
+  }
+
+  .menu-subtitle {
+    text-align: center;
+    color: #6f5a2e;
+    margin-bottom: 3rem;
+  }
+
+  .menu-category h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: #3c2a10;
+    border-bottom: 2px solid #d9c09c;
+    display: inline-block;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .menu-item h3 {
+    margin-top: 0.8rem;
+    color: #3e2c1b;
+  }
+
+  .menu-item p {
+    color: #6b5a3e;
+  }
+
+  .price {
+    font-weight: 600;
+    color: #50330c;
+    margin: 0.5rem 0;
+  }
+
+  .snipcart-add-item {
+    background-color: #8b5e34;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .snipcart-add-item:hover {
+    background-color: #a46f43;
+  }
+</style>
+
+  </main>
+
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="/images/treetop_logo_transparent.png" alt="Treetop Bakery Logo" class="footer-logo">
+      <p>Baked with love, rooted in flavor 🌿</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="quick-links">QUICK LINKS</p>
+      <a href="/">Home</a>
+      <a href="/menu/">Menu</a>
+      <a href="/about/">About</a>
+      <a href="/catering/">Catering</a>
+      <a href="/order/">Order Now</a>
+    </div>
+
+
+    <div class="footer-socials">
+      <p class="connect-text">Connect with us</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" class="social-circle"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="social-circle"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Twitter" class="social-circle"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Treetop Bakery. Brought to Life by
+      <a href="https://jalferez.netlify.app/">JA</a>
+    </p>
+  </div>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/0d0855f2a4.js" crossorigin="anonymous"></script>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background: #502419;
+      color: #ffffff;
+      padding: 2rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    /* Logo */
+    .footer-logo {
+      width: 270px;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-left p {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.6rem);
+      color: #e8f5e9;
+    }
+
+    .quick-links {
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.7vw + 0.8rem, 1.4rem);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      font-size: clamp(1rem, 0.8vw + 0.6rem, 1.3rem);
+    }
+
+    .footer-links a:hover {
+      color: #c8e6c9;
+    }
+
+    /* Socials section */
+    .footer-socials {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .connect-text {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.9vw + 0.7rem, 1.5rem);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .social-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: clamp(34px, 2.5vw + 20px, 50px);
+      height: clamp(34px, 2.5vw + 20px, 50px);
+      border-radius: 50%;
+      background-color: #3b1b14;
+      color: #ffffff;
+      font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1.3rem);
+      transition: all 0.3s ease;
+    }
+
+    .social-circle:hover {
+      background-color: #7b3f29;
+      transform: translateY(-3px);
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: clamp(0.8rem, 0.6vw + 0.5rem, 1rem);
+      opacity: 0.9;
+    }
+
+    .footer-bottom a {
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 796px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</footer>
+
+  <!-- public key doesnt matter rn -->
+  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0">
+  </div>
+  <!-- REMEMBER TO ALWAYS ADD THIS HERE BROO -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+
+</html>
