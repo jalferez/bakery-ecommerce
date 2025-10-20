@@ -1,0 +1,348 @@
+<section class="services-overview">
+    <div class="services-image">
+        <img src="/images/breadshot.jpg" alt="Fresh baked goods and coffee">
+    </div>
+
+    <!-- Service items -->
+    <div class="service-list">
+        <div class="service-item">
+            <img src="/images/bread2.svg" alt="Bakery Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Bakery</h3>
+                <div class="service-body">
+                    <p>A delicious variety of sweet and savory pastries, breads, and donuts, freshly baked every day.
+                    </p>
+                    <div class="service-buttons">
+                        <a href="/order/" class="btn-brown">ORDER NOW</a>
+                        <a href="/menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr class="divider">
+
+        <div class="service-item">
+            <img src="/images/cake.svg" alt="Cake Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Cakes</h3>
+                <div class="service-body">
+                    <p>Made by our master bakers and decorated to perfection, down to the last detail.</p>
+                    <div class="service-buttons">
+                        <a href="/order/" class="btn-brown">ORDER NOW</a>
+                        <a href="/menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="service-item">
+            <img src="/images/catering.svg" alt="Catering Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Catering</h3>
+                <div class="service-body">
+                    <p>Power your gathering with delightful baked goods from Treetop Bakery.</p>
+                    <div class="service-buttons">
+                        <a href="/order/" class="btn-brown">ORDER NOW</a>
+                        <a href="/menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .services-overview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #fff;
+            color: #333;
+            padding: 1.5rem 1rem;
+            gap: 2rem;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .service-icon {
+            width: clamp(100px, 8vw + 50px, 110px);
+            height: auto;
+            margin-bottom: 0.8rem;
+        }
+
+
+        .service-item h3 {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: clamp(2.2rem, 3vw + 1rem, 2.8rem);
+            color: #004F2D;
+            margin: 0;
+        }
+
+        .service-item p {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(.5rem, 1vw + 1rem, 1.35rem);
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0 0.5rem;
+        }
+
+        .service-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+        }
+
+        .btn-brown {
+            background: #895129;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 25px;
+            padding: 0.45rem 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-brown:hover {
+            background: #c9773c;
+        }
+
+        .btn-outline {
+            background: #f5f0eb;
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 25px;
+            padding: 0.6rem 1.5rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #e0d7cf;
+        }
+
+        .divider {
+            width: 80%;
+            border: none;
+            border-bottom: 1.5px dotted #ccc;
+        }
+
+        /* Mobile Styles */
+
+        @media (min-width: 425px) {
+            .service-item {
+                display: grid;
+                grid-template-columns: 90px 1fr;
+                column-gap: 1rem;
+                align-items: center;
+                text-align: left;
+            }
+
+            .service-icon {
+                grid-row: 1 / span 2;
+                width: 85px;
+                height: auto;
+                justify-self: center;
+                align-self: center;
+                transform: translateY(0px);
+            }
+
+            .service-content {
+                display: flex;
+                flex-direction: column;
+                width: 246.5px;
+            }
+
+            .service-content h3 {
+                margin-bottom: 0.2rem;
+                transform: translateX(6px);
+                font-size: clamp(2rem, 1vw + 1.1rem, 2.3rem);
+            }
+
+            .service-item p {
+                margin: 0;
+                line-height: 1.5;
+                font-size: clamp(1rem, 0.8vw + 0.8rem, 1.2rem);
+            }
+
+            .service-body {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .service-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                align-items: center;
+            }
+
+            .service-buttons a {
+                text-align: center;
+                width: 100%;
+                max-width: 180px;
+                padding: 0.45rem 1rem;
+                font-size: clamp(0.9rem, 0.6vw + 0.7rem, 1rem);
+            }
+        }
+
+
+        @media (min-width: 768px) {
+
+            .services-image {
+                width: 100%;
+                max-width: 1200px;
+                overflow: hidden;
+                border-radius: 6px;
+            }
+
+            .services-image img {
+                width: 100%;
+                height: 240px;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                filter: brightness(0.95);
+            }
+
+            .service-item {
+                display: grid;
+                grid-template-columns: 90px 1fr;
+                column-gap: 1.2rem;
+                align-items: center;
+                text-align: left;
+            }
+
+            .service-content {
+                width: auto;
+                max-width: 450px;
+            }
+
+            .service-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .service-buttons a {
+                width: auto;
+                min-width: 130px;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .services-overview {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+                gap: 3rem;
+                text-align: left;
+                padding: 4rem 2rem;
+            }
+
+
+            .services-image {
+                flex: 0 0 35%;
+                height: auto;
+                max-height: none;
+                border-radius: 12px;
+                overflow: hidden;
+                align-self: stretch;
+            }
+
+            .services-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                border-radius: 12px;
+            }
+
+
+            .service-list {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+                max-width: 650px;
+            }
+
+            .service-item {
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                align-items: center;
+                column-gap: 1.5rem;
+            }
+
+            .service-icon {
+                width: 100px;
+                height: auto;
+                justify-self: center;
+            }
+
+            .service-content {
+                width: 100%;
+                max-width: none;
+            }
+
+            .service-content h3 {
+                font-size: clamp(2.2rem, 1vw + 1.4rem, 2.7rem);
+                margin-bottom: 0.5rem;
+            }
+
+            .service-item p {
+                font-size: clamp(1.1rem, 0.6vw + 0.9rem, 1.3rem);
+                line-height: 1.7;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+
+            .service-buttons a {
+                padding: 0.6rem 1.3rem;
+                min-width: 140px;
+                text-align: center;
+            }
+        }
+    </style>
+</section>
