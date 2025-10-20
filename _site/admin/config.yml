@@ -31,3 +31,14 @@ collections:
       - { label: "Details Link", name: "details_link", widget: "string" }
       - { label: "Details Button Text", name: "details_label", widget: "string" }
 
+  - name: "menu"
+    label: "Menu Items"
+    folder: "content/menu"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Category", name: "category", widget: "select", options: ["Cake", "Pastry", "Donut", "Savory", "Beverage"], required: true }
