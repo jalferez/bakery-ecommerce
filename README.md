@@ -1,11 +1,11 @@
-# Treetop Bakery — Local Bakery eCommerce Website  
+# Treetop Bakery — Local Mockup Bakery eCommerce Website  
 **Status:** _Early Development — Actively Being Worked On_  
 
 ---
 
 ## Description  
-Treetop Bakery is a **local bakery eCommerce website** built to combine the warmth of a neighborhood bakery with the convenience of modern online ordering.  
-The goal is to allow customers to **browse, order, and pay online** for pickup or local delivery — all through a clean, fast, and user-friendly interface.  
+Treetop Bakery is a **local Mockup bakery eCommerce website** built to combine the warmth of a neighborhood bakery with the convenience of modern online ordering.  
+The goal is to allow customers to **browse, order, and pay online** for pickup or local delivery — all through a clean, fast, and user-friendly interface. THIS IS NOT A REAL BAKERY!
 
 This project follows a **JAMstack architecture** using static site generation, a headless CMS, and integrated eCommerce.
 
