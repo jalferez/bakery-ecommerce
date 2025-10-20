@@ -1,4 +1,4 @@
-<header>
+<header id="site-header">
   <nav class="navbar">
     <div class="nav-header">
       <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
@@ -21,15 +21,27 @@
   </nav>
 
   <style>
-    header {
-      background: #004F2D;
+    /* --- NEW: transparent + blur before scroll, solid after scroll --- */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 79, 45, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
       color: #fff;
       padding: 1rem 1.2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      box-sizing: border-box;
     }
 
+    #site-header.scrolled {
+      background: #004F2D;
+      backdrop-filter: none;
+    }
+
+    /* --- end of new rules --- */
 
     .navbar {
       position: relative;
@@ -38,13 +50,11 @@
       gap: 1rem;
     }
 
-
     .nav-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
 
     .brand {
       font-size: 1.5rem;
@@ -58,7 +68,6 @@
     .brand span {
       display: block;
     }
-
 
     .menu-toggle {
       display: flex;
@@ -76,12 +85,10 @@
       height: 4px;
       background: #fff;
       border-radius: 2px;
-      transition: transform 0.35s ease, opacity 0.25s ease;
+      transition: transform .35s ease, opacity .25s ease;
       transform-origin: center;
       margin: 0;
-
     }
-
 
     .menu-toggle.open span:nth-child(1) {
       transform: translateY(9px) rotate(45deg);
@@ -95,8 +102,6 @@
       transform: translateY(-9px) rotate(-45deg);
     }
 
-
-
     .nav-links {
       list-style: none;
       margin: 0;
@@ -109,12 +114,8 @@
       opacity: 0;
       transform: translateY(-8px);
       visibility: hidden;
-      transition:
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        visibility 0.5s ease;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
     }
-
 
     .nav-links.active {
       max-height: 500px;
@@ -124,15 +125,15 @@
     }
 
     .nav-links li {
-      margin: 0.6rem 0;
+      margin: .6rem 0;
     }
 
     .nav-links a {
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: color 0.2s ease;
+      letter-spacing: .5px;
+      transition: color .2s ease;
     }
 
     .nav-links a:hover {
@@ -142,7 +143,7 @@
     .order-btn {
       background: #004d22;
       color: #2e7d32;
-      padding: 0.5rem 1.2rem;
+      padding: .5rem 1.2rem;
       border-radius: 25px;
       font-weight: 700;
     }
@@ -154,12 +155,12 @@
         align-items: center;
       }
 
-      .brand{
+      .brand {
         font-size: 1.3rem;
       }
+
       .brand span {
         display: inline;
-        
       }
 
       .menu-toggle {
@@ -167,61 +168,68 @@
       }
 
       .nav-links {
-    flex-direction: row;
-    gap: 1.5rem;
-    max-height: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
+        flex-direction: row;
+        gap: 1.5rem;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
 
-  .nav-links a {
-    position: relative;
-    padding-bottom: 4px; 
-  }
+      .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+      }
 
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #66bb6a; 
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #66bb6a;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+      }
 
-  .nav-links a:hover::after {
-    transform: scaleX(1);
-  }
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
     }
+
     @media (min-width: 1024px) {
-  .navbar {
-    max-width: 1100px;     
-    margin: 0 auto;        
-    padding: 0 1.5rem;     
-  }
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
 
-  .brand {
-    font-size: 1.75rem;    
-  }
+      .brand {
+        font-size: 1.75rem;
+      }
 
-  .nav-links {
-    gap: 2rem;             
-    font-size: 1.1rem;      
-  }
-}
+      .nav-links {
+        gap: 2rem;
+        font-size: 1.1rem;
+      }
+    }
   </style>
 
   <script>
-    const toggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+    /* hamburger toggle (unchanged) */
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
 
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      toggle.classList.toggle("open");
+    /* scroll behaviour: add/remove .scrolled class */
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 0);
     });
   </script>
 </header>
