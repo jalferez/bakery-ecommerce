@@ -1,16 +1,22 @@
 ---
 layout: layouts/base.njk
-title: "Menu"
+title: Treetop Bakery Menu | Fresh Baked Goods & Pastries
 ---
+
+{% set menuHero = collections.menuhero | first %}
+<section class="hero"
+  style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('{{ menuHero.data.bg_image }}');
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;">
+  <div class="hero-overlay">
+    <h1>{{ menuHero.data.heading | safe }}</h1>
+    <p>{{ menuHero.data.subtext }}</p>
+  </div>
+</section>
 
 <section class="menu-page">
   <div class="container">
-    <h1 class="menu-title">Our Menu</h1>
-    <p class="menu-subtitle">Freshly baked delights made daily. Choose your favorite treat!</p>
-
-
-
-
 
     {% set categories = ["Cake", "Pastry", "Donut", "Savory", "Beverage"] %}
     
@@ -44,22 +50,42 @@ title: "Menu"
 </section>
 
 <style>
+
+  .hero {
+    height: 40vh;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
   .menu-page {
     padding: 4rem 2rem;
     background: #fffdf9;
-  }
-
-  .menu-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.3rem;
-    color: #4b2e05;
-  }
-
-  .menu-subtitle {
-    text-align: center;
-    color: #6f5a2e;
-    margin-bottom: 3rem;
   }
 
   .menu-category h2 {
@@ -119,4 +145,7 @@ title: "Menu"
   .snipcart-add-item:hover {
     background-color: #a46f43;
   }
+
+
+
 </style>
