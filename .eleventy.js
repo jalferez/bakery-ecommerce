@@ -16,6 +16,10 @@ module.exports = function(eleventyConfig) {
   return collectionApi.getFilteredByGlob("content/featured/*.md");
 });
 
+eleventyConfig.addCollection("menuhero", function(collectionApi) {
+  return collectionApi.getFilteredByGlob("content/menuhero/*.md");
+});
+
 eleventyConfig.addCollection("menu", function(collectionApi) {
   return collectionApi.getFilteredByGlob("content/menu/*.md");
 });
