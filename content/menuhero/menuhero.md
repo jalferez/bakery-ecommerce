@@ -1,6 +1,6 @@
 ---
 permalink: false
 heading: MENU
-subtext: Joy Baked Into Every Bite.
+subtext: Rooted In Flavor.
 bg_image: /images/menu_bg.webp
 ---
