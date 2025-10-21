@@ -60,7 +60,12 @@ collections:
     fields:
       - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
       - { label: "Name", name: "title", widget: "string" }
-      - { label: "Price", name: "price", widget: "number" }
+      - label: "Price"
+        name: "price"
+        widget: "number"
+        value_type: "float"
+        step: 0.01
+        min: 0
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
 
