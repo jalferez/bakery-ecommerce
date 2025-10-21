@@ -20,9 +20,15 @@ eleventyConfig.addCollection("menuhero", function(collectionApi) {
   return collectionApi.getFilteredByGlob("content/menuhero/*.md");
 });
 
+eleventyConfig.addCollection("categories", function(collectionApi) {
+  return collectionApi.getFilteredByGlob("content/categories/*.md");
+});
+
+
 eleventyConfig.addCollection("menu", function(collectionApi) {
   return collectionApi.getFilteredByGlob("content/menu/*.md");
 });
+
 
 
   return {
