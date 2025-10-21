@@ -12,7 +12,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js" async></script>
+ <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+
 
 
   <style>
@@ -34,16 +35,17 @@
     {{ content | safe }}
   </main>
 
-  
 
+  {% include "shop/shop_cart_mobile.njk" %}
 
   {% include "partials/footer.njk" %}
 
-  <!-- public key doesnt matter rn -->
-  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0">
-  </div>
+
+  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0" data-config-add-product-behavior="none"></div>
+
   <!-- REMEMBER TO ALWAYS ADD THIS HERE BROO -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </body>
 
 </html>
