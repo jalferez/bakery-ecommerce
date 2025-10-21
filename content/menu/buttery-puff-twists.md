@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Buttery Puff Twists
 price: 1
 description: Light, crispy pastry twist baked to golden perfection with a

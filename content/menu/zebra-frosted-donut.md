@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Zebra Frosted Donut
 price: 3
 description: A soft, fluffy donut topped with smooth vanilla icing and drizzled

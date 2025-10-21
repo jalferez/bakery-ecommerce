@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Home Hero
 heading: PURE JOY, <br> BAKED IN
 subtext: Freshly baked delights crafted with love and care every morning. From

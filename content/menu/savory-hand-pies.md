@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Savory Hand Pies
 price: 3
 description: Flaky, golden pastry pockets filled with seasoned meats,

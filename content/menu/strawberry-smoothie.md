@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Strawberry Smoothie
 price: 5
 description: A refreshing blend of ripe strawberries, creamy milk, and a hint of

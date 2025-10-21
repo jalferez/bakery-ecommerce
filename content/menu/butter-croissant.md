@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Butter Croissant
 price: 3
 description: Flaky, golden, and buttery — baked fresh every morning.

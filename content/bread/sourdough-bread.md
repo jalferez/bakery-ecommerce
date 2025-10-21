@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Blueberry Muffins
 price: "2.00"
 image: /images/uploads/blueberry-muffins.webp

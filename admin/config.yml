@@ -6,13 +6,13 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # Existing Bread Collection
   - name: "homebg"
     label: "Home Hero Section"
     folder: "content/homebg"
     create: false
     delete: false
     fields:
+      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
       - { label: "Heading", name: "heading", widget: "string" }
       - { label: "Subtext", name: "subtext", widget: "text" }
       - { label: "Background Image", name: "bg_image", widget: "image" }
@@ -23,6 +23,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
@@ -37,6 +38,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "number" }
       - { label: "Description", name: "description", widget: "text" }

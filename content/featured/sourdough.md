@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: "Fresh Sourdough"
 description: "Crispy on the outside, soft on the inside. Baked daily using our 12-hour fermentation process."
 image: "/images/uploads/sourdough1.jpg"

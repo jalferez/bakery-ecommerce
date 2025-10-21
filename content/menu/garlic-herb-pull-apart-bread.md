@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Garlic Herb Pull-Apart Bread
 price: 20
 description: Warm, buttery bread infused with fresh herbs, garlic, and parmesan

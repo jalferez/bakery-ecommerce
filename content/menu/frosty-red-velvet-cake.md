@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Frosty Red Velvet Cake
 price: 20
 description: A luscious twist on the classic red velvet, layered with smooth

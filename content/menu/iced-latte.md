@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Iced Latte
 price: 4.5
 description: Espresso poured over ice with creamy milk — simple, smooth, and refreshing.

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: "Chocolate Croissant"
 description: "Flaky layers filled with rich Belgian chocolate, your perfect morning indulgence."
 image: "/images/uploads/Chocolate-Croissants.webp"

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Strawberry Rainbow Sprinkles Donut
 price: 2.5
 description: Soft yeast donut dipped in our signature vanilla glaze.

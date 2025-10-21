@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Strawberry Slices Vanilla Cake
 price: 15
 description: A light, fluffy vanilla cake layered with fresh strawberry slices

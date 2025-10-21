@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Classic Sugar Donut
 price: 2
 description: Soft, fluffy, and coated in a sweet layer of fine sugar — a

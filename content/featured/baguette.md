@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Artisan Baguette
 description: Golden and crusty on the outside, fluffy on the inside. The French
   classic, done right.

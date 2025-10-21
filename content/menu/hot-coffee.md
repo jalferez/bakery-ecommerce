@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Hot Coffee
 price: 1
 description: "Delicious blend Hot Coffee, ready to start your morning. "

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Golden Palmiers
 price: 2
 description: Delicate, flaky puff pastry baked to golden perfection and
