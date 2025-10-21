@@ -43,6 +43,14 @@ collections:
       - { label: "Subtext", name: "subtext", widget: "text" }
       - { label: "Background Image", name: "bg_image", widget: "image" }
 
+  - name: "categories"
+    label: "Menu Categories"
+    folder: "content/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - { label: "Category Name", name: "title", widget: "string" }
 
   - name: "menu"
     label: "Menu Items"
@@ -55,4 +63,13 @@ collections:
       - { label: "Price", name: "price", widget: "number" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Category", name: "category", widget: "select", options: ["Cake", "Pastry", "Donut", "Savory", "Beverage"], required: true }
+
+
+      - label: "Category"
+        name: "category"
+        widget: "relation"
+        collection: "categories"
+        search_fields: ["title"]
+        value_field: "title"
+        display_fields: ["title"]
+        required: true
