@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/treetopbakery-favicon.ico" type="image/x-icon" />
-  <title>Menu</title>
+  <title>Treetop Bakery Menu | Fresh Baked Goods &amp; Pastries</title>
   <!-- Snipcart -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
   <!-- Font -->
@@ -271,14 +271,20 @@
 
   <main>
     
+
+<section class="hero"
+  style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('/images/menu_bg.webp');
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;">
+  <div class="hero-overlay">
+    <h1>MENU</h1>
+    <p>Joy Baked Into Every Bite.</p>
+  </div>
+</section>
+
 <section class="menu-page">
   <div class="container">
-    <h1 class="menu-title">Our Menu</h1>
-    <p class="menu-subtitle">Freshly baked delights made daily. Choose your favorite treat!</p>
-
-
-
-
 
     
     
@@ -738,22 +744,42 @@
 </section>
 
 <style>
+
+  .hero {
+    height: 40vh;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
   .menu-page {
     padding: 4rem 2rem;
     background: #fffdf9;
-  }
-
-  .menu-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.3rem;
-    color: #4b2e05;
-  }
-
-  .menu-subtitle {
-    text-align: center;
-    color: #6f5a2e;
-    margin-bottom: 3rem;
   }
 
   .menu-category h2 {
@@ -813,6 +839,9 @@
   .snipcart-add-item:hover {
     background-color: #a46f43;
   }
+
+
+
 </style>
 
   </main>
