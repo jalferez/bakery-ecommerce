@@ -8,5 +8,5 @@ description: Flaky, golden pastry pockets filled with seasoned meats,
 image: "
   https://thecozyapron.com/wp-content/uploads/2021/10/savory-hand-pies_thecozya\
   pron_1.jpg"
-category: Savory
+category: Savorys
 ---
