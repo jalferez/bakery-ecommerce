@@ -32,6 +32,18 @@ collections:
       - { label: "Details Link", name: "details_link", widget: "string" }
       - { label: "Details Button Text", name: "details_label", widget: "string" }
 
+  - name: "menuhero"
+    label: "Menu Page Hero Section"
+    folder: "content/menuhero"
+    create: false
+    delete: false
+    fields:
+      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - { label: "Heading", name: "heading", widget: "string" }
+      - { label: "Subtext", name: "subtext", widget: "text" }
+      - { label: "Background Image", name: "bg_image", widget: "image" }
+
+
   - name: "menu"
     label: "Menu Items"
     folder: "content/menu"
