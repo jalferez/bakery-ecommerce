@@ -1,0 +1,245 @@
+---
+layout: layouts/base.njk
+title: Start Your Order | Treetop Bakery
+---
+
+{% set menuHero = collections.menuhero | first %}
+<section class="hero"
+  style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('{{ menuHero.data.bg_image }}');
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;">
+  <div class="hero-overlay">
+    <h1>{{ menuHero.data.heading | safe }}</h1>
+    <p>{{ menuHero.data.subtext }}</p>
+  </div>
+</section>
+
+<section class="menu-page">
+  <div class="container">
+
+    {% set categories = collections.categories | sort(false, 'data.title') %}
+    
+    {% for category in categories %}
+      <section class="menu-category">
+        <h2>{{ category.data.title }}</h2>
+        <div class="menu-grid">
+
+          {% for item in collections.menu %}
+            {% if item.data.category == category.data.title %}
+              <div class="menu-item">
+                
+                <img src="{{ item.data.image }}" alt="{{ item.data.title }}" loading="lazy">
+                <h3>{{ item.data.title }}</h3>
+                <p>{{ item.data.description }}</p>
+                <p class="price">${{ item.data.price | float | round(2) }}</p>
+                
+                <div class="card-buttons">
+                  <a href="/select-location/" class="order-btn">Order Now</a>
+                  <button class="details-btn">Details</button>
+                </div>
+
+                
+                <div class="details-overlay" aria-hidden="true">
+                  <div class="details-panel">
+                    <h3>{{ item.data.title }}</h3>
+                    <p>{{ item.data.description }}</p>
+                    {% if item.data.calories %}
+                      <p class="calories">Calories: {{ item.data.calories }}</p>
+                    {% endif %}
+                    <button class="back-btn" aria-label="Close details">Back</button>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+ 
+  .hero {
+    height: 40vh;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .menu-page {
+    padding: 4rem 2rem;
+    background: #fffdf9;
+  }
+
+  .menu-category h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: #3c2a10;
+    border-bottom: 2px solid #d9c09c;
+    display: inline-block;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .menu-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .menu-item h3 {
+    margin-top: 0.8rem;
+    color: #3e2c1b;
+  }
+
+  .menu-item p {
+    color: #6b5a3e;
+  }
+
+  .price {
+    font-weight: 600;
+    color: #50330c;
+    margin: 0.5rem 0;
+  }
+
+
+  .order-btn {
+    background-color: #8b5e34;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+
+  .order-btn:hover {
+    background-color: #a46f43;
+  }
+
+
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .details-btn,
+  .back-btn {
+    background-color: #af8f61;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .details-btn:hover,
+  .back-btn:hover {
+    background-color: #635544;
+  }
+
+  
+  .menu-item { position: relative; }
+
+
+  .details-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    padding: 1.2rem;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: rotateY(15deg) scale(0.98);
+    transition: opacity 260ms ease, transform 320ms ease;
+    pointer-events: none; 
+  }
+
+
+  .details-panel {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .menu-item.show-back .details-overlay {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+    pointer-events: auto; 
+  }
+
+  .calories {
+    font-weight: 600;
+    color: #50330c;
+    margin-top: 0.8rem;
+  }
+</style>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".menu-item").forEach(card => {
+      const detailsBtn = card.querySelector(".details-btn");
+      const backBtn = card.querySelector(".back-btn");
+      const overlay = card.querySelector(".details-overlay");
+
+      if (detailsBtn && overlay) {
+        detailsBtn.addEventListener("click", () => {
+          card.classList.add("show-back");
+          overlay.setAttribute("aria-hidden", "false");
+        });
+      }
+
+      if (backBtn && overlay) {
+        backBtn.addEventListener("click", () => {
+          card.classList.remove("show-back");
+          overlay.setAttribute("aria-hidden", "true");
+        });
+      }
+    });
+  });
+</script>
