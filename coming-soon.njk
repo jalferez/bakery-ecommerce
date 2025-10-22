@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+title: Coming Soon | Treetop Bakery
+---
+
+<section class="coming-soon">
+  <div class="content">
+    <h1>Coming Soon</h1>
+    <p>We’re still planting this tree — check back soon as it grows into something special!</p>
+    <a href="/" class="back-home">Return to Home</a>
+    <a href="/order-menu" class="back-home">Checkout The Menu</a>
+  </div>
+</section>
+
+<style>
+  .coming-soon {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(
+        rgba(255, 253, 249, 0.9),
+        rgba(255, 253, 249, 0.9)
+      ),
+      url("/images/uploads/bakery-bg.webp");
+    background-size: cover;
+    background-position: center;
+    color: #3c2a10;
+    padding: 2rem;
+  }
+
+  .coming-soon .content {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+  }
+
+  .coming-soon h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: #8b5e34;
+  }
+
+  .coming-soon p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #50330c;
+    margin-bottom: 2rem;
+  }
+
+  .back-home {
+    display: inline-block;
+    background-color: #8b5e34;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+
+  .back-home:hover {
+    background-color: #a46f43;
+  }
+</style>
