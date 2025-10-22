@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/images/treetopbakery-favicon.ico" type="image/x-icon" />
-  <title>About Us</title>
+  <title>Coming Soon | Treetop Bakery</title>
   <!-- Snipcart -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
   <!-- Font -->
@@ -45,7 +45,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="/" class="">HOME</a></li>
       <li><a href="/order-menu/" class="">MENU</a></li>
-      <li><a href="/coming-soon" class="active">ABOUT</a></li>
+      <li><a href="/coming-soon" class="">ABOUT</a></li>
       <li><a href="/coming-soon/" class="">CATERING</a></li>
       <li><a href="/coming-soon/" class="order-btn ">ORDER NOW</a></li>
       <li class="nav-cart snipcart-checkout" aria-label="Open shopping cart">
@@ -387,106 +387,68 @@
 
   <main>
     
-<section class="about-section">
-  <div class="about-intro">
-    <h2>Our Story</h2>
-    <p>
-      Nestled among the trees of our community, <strong>Treetop Bakery</strong> began with a simple idea —
-      to bake bread that feels like home. We believe that every loaf, pastry, and cookie carries the warmth
-      of nature and the joy of sharing.
-    </p>
-  </div>
-
-  <div class="about-img">
-    <img src="/images/uploads/bakery-interior.jpg" alt="Inside Treetop Bakery" />
-  </div>
-
-  <div class="about-mission">
-    <h2>Our Mission</h2>
-    <p>
-      From hand-crafted sourdoughs to freshly baked croissants, we use only the finest natural ingredients.
-      Our goal is to bring people together — one loaf at a time — while staying true to our roots in
-      sustainability and community.
-    </p>
-  </div>
-
-  <div class="about-values">
-    <h2>What We Stand For</h2>
-    <ul>
-      <li>🌿 Sustainability — eco-friendly ingredients and packaging</li>
-      <li>❤️ Passion — everything baked with care</li>
-      <li>🤝 Community — supporting local farmers and families</li>
-    </ul>
+<section class="coming-soon">
+  <div class="content">
+    <h1>Coming Soon</h1>
+    <p>We’re still planting this tree — check back soon as it grows into something special!</p>
+    <a href="/" class="back-home">Return to Home</a>
+    <a href="/order-menu" class="back-home">Checkout The Menu</a>
   </div>
 </section>
 
 <style>
-  .about-section {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  }
-
-  .about-section h2 {
-    text-align: center;
-    color: #2e7d32;
-    margin-bottom: 1rem;
-  }
-
-  .about-intro, .about-mission, .about-values {
-    margin-bottom: 2.5rem;
-  }
-
-  .about-intro p,
-  .about-mission p {
-    line-height: 1.8;
-    font-size: 1.05rem;
-    text-align: center;
-    color: #444;
-  }
-
-  .about-img {
+  .coming-soon {
+    min-height: 85vh;
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
-  }
-
-  .about-img img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-  }
-
-  .about-values ul {
-    list-style: none;
-    padding: 0;
+    align-items: center;
     text-align: center;
+    background: linear-gradient(
+        rgba(255, 253, 249, 0.9),
+        rgba(255, 253, 249, 0.9)
+      ),
+      url("/images/uploads/bakery-bg.webp");
+    background-size: cover;
+    background-position: center;
+    color: #3c2a10;
+    padding: 2rem;
   }
 
-  .about-values li {
-    background: #e8f5e9;
-    color: #2e7d32;
+  .coming-soon .content {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+  }
+
+  .coming-soon h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: #8b5e34;
+  }
+
+  .coming-soon p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #50330c;
+    margin-bottom: 2rem;
+  }
+
+  .back-home {
     display: inline-block;
-    margin: 0.4rem;
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.1);
+    background-color: #8b5e34;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease;
   }
 
-  @media (max-width: 600px) {
-    .about-section {
-      padding: 1rem;
-    }
-    .about-values li {
-      display: block;
-      margin: 0.5rem auto;
-      width: 90%;
-    }
+  .back-home:hover {
+    background-color: #a46f43;
   }
 </style>
 
