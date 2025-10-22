@@ -12,25 +12,39 @@ collections:
     create: false
     delete: false
     fields:
-      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - {
+          name: "permalink",
+          label: "Permalink",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Heading", name: "heading", widget: "string" }
       - { label: "Subtext", name: "subtext", widget: "text" }
       - { label: "Background Image", name: "bg_image", widget: "image" }
-      
+
   - name: "featured"
     label: "Home Page - Featured Cards"
     folder: "content/featured"
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - {
+          name: "permalink",
+          label: "Permalink",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Order Link", name: "order_link", widget: "string" }
       - { label: "Order Button Text", name: "order_label", widget: "string" }
       - { label: "Details Link", name: "details_link", widget: "string" }
-      - { label: "Details Button Text", name: "details_label", widget: "string" }
+      - {
+          label: "Details Button Text",
+          name: "details_label",
+          widget: "string",
+        }
 
   - name: "menuhero"
     label: "Menu Page Hero Section"
@@ -38,7 +52,12 @@ collections:
     create: false
     delete: false
     fields:
-      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - {
+          name: "permalink",
+          label: "Permalink",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Heading", name: "heading", widget: "string" }
       - { label: "Subtext", name: "subtext", widget: "text" }
       - { label: "Background Image", name: "bg_image", widget: "image" }
@@ -49,7 +68,12 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - {
+          name: "permalink",
+          label: "Permalink",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Category Name", name: "title", widget: "string" }
 
   - name: "menu"
@@ -58,7 +82,12 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { name: "permalink", label: "Permalink", widget: "hidden", default: false }
+      - {
+          name: "permalink",
+          label: "Permalink",
+          widget: "hidden",
+          default: false,
+        }
       - { label: "Name", name: "title", widget: "string" }
       - label: "Price"
         name: "price"
@@ -67,8 +96,8 @@ collections:
         step: 0.01
         min: 0
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Calories", name: "calories", widget: "number", required: true }
       - { label: "Image", name: "image", widget: "image" }
-
 
       - label: "Category"
         name: "category"
