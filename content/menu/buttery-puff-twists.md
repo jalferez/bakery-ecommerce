@@ -8,5 +8,5 @@ description: Light, crispy pastry twist baked to golden perfection with a
 calories: 100
 image: /images/uploads/puff-pastry-7250419_1280.jpg
 category: Pastrys
-calories: 200
+
 ---
