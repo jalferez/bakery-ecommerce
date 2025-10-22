@@ -5,6 +5,6 @@ description: "Flaky layers filled with rich Belgian chocolate, your perfect morn
 image: "/images/uploads/Chocolate-Croissants.webp"
 order_link: "/order/"
 order_label: "Order Now"
-details_link: "/menu/"
+details_link: "/order-menu/"
 details_label: "Details"
 ---

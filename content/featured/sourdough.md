@@ -5,6 +5,6 @@ description: "Crispy on the outside, soft on the inside. Baked daily using our 1
 image: "/images/uploads/sourdough1.jpg"
 order_link: "/order/"
 order_label: "Order Now"
-details_link: "/menu/"
+details_link: "/order-menu/"
 details_label: "Details"
 ---
