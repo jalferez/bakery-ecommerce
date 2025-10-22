@@ -9,4 +9,5 @@ image: "
   https://thecozyapron.com/wp-content/uploads/2021/10/savory-hand-pies_thecozya\
   pron_1.jpg"
 category: Savorys
+calories: 200
 ---

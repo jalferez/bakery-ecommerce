@@ -7,4 +7,5 @@ description: A refreshing blend of ripe strawberries, creamy milk, and a hint of
   sip.
 image: https://cdn.pixabay.com/photo/2023/05/31/11/14/smoothie-8031132_1280.jpg
 category: Beverages
+calories: 200
 ---

@@ -7,4 +7,5 @@ description: A luscious twist on the classic red velvet, layered with smooth
   moist, rich, and irresistibly sweet — a true bakery favorite.
 image: /images/uploads/cake-1227842_1280.jpg
 category: Cakes
+calories: 200
 ---

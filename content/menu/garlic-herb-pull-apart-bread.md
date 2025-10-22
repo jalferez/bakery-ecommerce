@@ -7,4 +7,5 @@ description: Warm, buttery bread infused with fresh herbs, garlic, and parmesan
   with your favorite meal.
 image: /images/uploads/bread-8814788_1280.jpg
 category: Savorys
+calories: 200
 ---

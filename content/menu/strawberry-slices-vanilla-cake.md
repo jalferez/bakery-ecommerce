@@ -7,4 +7,5 @@ description: A light, fluffy vanilla cake layered with fresh strawberry slices
   perfectly delightful treat.
 image: /images/uploads/small-cake-2142072_1280.jpg
 category: Cakes
+calories: 200
 ---

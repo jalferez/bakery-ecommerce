@@ -7,4 +7,5 @@ description: Soft, fluffy, and coated in a sweet layer of fine sugar — a
   bite.
 image: /images/uploads/donat-3393225_1920.jpg
 category: Donuts
+calories: 200
 ---

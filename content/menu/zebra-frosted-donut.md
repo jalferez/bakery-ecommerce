@@ -7,4 +7,5 @@ description: A soft, fluffy donut topped with smooth vanilla icing and drizzled
   as it is delicious.
 image: /images/uploads/donuts-4633066_1280.jpg
 category: Donuts
+calories: 200
 ---
