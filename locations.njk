@@ -1,0 +1,255 @@
+---
+layout: layouts/base.njk
+title: Our Locations | Treetop Bakery
+---
+
+<section class="choose-location">
+  <div class="location-content">
+    <h1>Treetop Bakery</h1>
+    <p>Find your nearest Treetop Bakery below.</p>
+
+  
+    <div class="search-box">
+      <input
+        type="text"
+        id="zipcode"
+        placeholder="Enter ZIP code"
+        aria-label="Enter ZIP code"
+      />
+      <button id="search-btn">Search</button>
+      <button id="geo-btn">Use My Location</button>
+    </div>
+  </div>
+
+  <div id="map"></div>
+</section>
+
+<style>
+
+  .choose-location {
+    background: #f9f7f3;
+    text-align: center;
+    padding: 7.5rem 1rem 3rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .location-content {
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+  }
+
+  .choose-location h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #422a18;
+  }
+
+  .choose-location p {
+    color: #5c3d2e;
+    font-size: 1rem;
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .search-box input {
+    padding: 0.7rem;
+    border: 1px solid #d1c6bb;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .search-box button {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 8px;
+    background: #5c3d2e;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .search-box button:hover {
+    background: #422a18;
+  }
+
+  #map {
+    width: 100%;
+    max-width: 900px;
+    height: 450px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    margin-top: 2rem;
+  }
+
+  
+  @media (min-width: 768px) {
+    .choose-location {
+      padding-top: 7rem;
+    }
+
+    .choose-location h1 {
+      font-size: 2.25rem;
+    }
+
+    .choose-location p {
+      font-size: 1.1rem;
+    }
+
+    .search-box {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .search-box input {
+      width: 200px;
+    }
+
+    #map {
+      height: 500px;
+      width: 90%;
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    .choose-location {
+      padding-top: 8rem;
+      padding-bottom: 5rem;
+    }
+
+    #map {
+      height: 550px;
+    }
+  }
+
+  
+  .leaflet-popup-content button {
+    background: #5c3d2e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+  }
+
+  .leaflet-popup-content button:hover {
+    background: #422a18;
+  }
+</style>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+    const map = L.map("map").setView([29.7604, -95.3698], 11);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors",
+    }).addTo(map);
+
+    
+    const locations = [
+      { name: "Treetop North", coords: [29.8304, -95.3908], hours: "Open 7AM – 5PM" },
+      { name: "Treetop Central", coords: [29.7604, -95.3698], hours: "Open 6:30AM – 6PM" },
+      { name: "Treetop South", coords: [29.7004, -95.4008], hours: "Open 8AM – 4PM" },
+    ];
+
+   
+    const markers = locations.map((loc) => {
+      const marker = L.marker(loc.coords).addTo(map);
+      marker.bindPopup(
+        "<b>" + loc.name + "</b><br>" +
+        loc.hours + "<br><br>" +
+        "<button onclick=\"selectLocation('" + loc.name + "')\">Select</button>"
+      );
+      return marker;
+    });
+
+    
+    document.getElementById("search-btn").addEventListener("click", function () {
+      const zip = document.getElementById("zipcode").value.trim();
+      if (!zip) return alert("Please enter a ZIP code!");
+
+      
+      fetch(`https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=US&format=json`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.length === 0) return alert("ZIP code not found.");
+          const userCoords = [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+          findNearest(userCoords);
+        })
+        .catch(() => alert("Error finding location. Try again."));
+    });
+
+    // Use current location
+    document.getElementById("geo-btn").addEventListener("click", function () {
+      if (!navigator.geolocation) return alert("Geolocation not supported.");
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const userCoords = [pos.coords.latitude, pos.coords.longitude];
+          findNearest(userCoords);
+        },
+        () => alert("Unable to access your location.")
+      );
+    });
+
+    function findNearest(userCoords) {
+      let closest = null;
+      let minDist = Infinity;
+
+      locations.forEach((loc) => {
+        const dist = distance(userCoords, loc.coords);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = loc;
+        }
+      });
+
+      if (closest) {
+        map.setView(closest.coords, 13);
+        alert("Nearest bakery: " + closest.name);
+        markers.find(m => m.getLatLng().lat === closest.coords[0]).openPopup();
+      }
+    }
+
+ 
+    function distance(coord1, coord2) {
+      const R = 6371;
+      const dLat = (coord2[0] - coord1[0]) * Math.PI / 180;
+      const dLon = (coord2[1] - coord1[1]) * Math.PI / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(coord1[0] * Math.PI / 180) *
+        Math.cos(coord2[0] * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c; 
+    }
+  });
+
+  function selectLocation(name) {
+    localStorage.setItem("chosenLocation", name);
+    alert("You chose " + name + "!");
+    window.location.href = "/menu/";
+  }
+</script>
