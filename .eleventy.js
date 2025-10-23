@@ -6,10 +6,11 @@ module.exports = function(eleventyConfig) {
 
 
 
+
   eleventyConfig.addPassthroughCopy("admin");
 
   eleventyConfig.addCollection("homebg", function (collectionApi) {
-  return collectionApi.getFilteredByGlob("./content/homebg/*.md");
+  return collectionApi.getFilteredByGlob("content/homebg/*.md");
 });
  
  eleventyConfig.addCollection("featured", function(collectionApi) {
@@ -33,8 +34,8 @@ eleventyConfig.addCollection("menu", function(collectionApi) {
 
   return {
     dir: {
-      input: "pages",
-      includes: "../_includes",
+      input: ".",
+      includes: "_includes",
       output: "_site"
     }
   };
