@@ -34,7 +34,7 @@ eleventyConfig.addCollection("menu", function(collectionApi) {
   return {
     dir: {
       input: "pages",
-      includes: "_includes",
+      includes: "../_includes",
       output: "_site"
     }
   };
