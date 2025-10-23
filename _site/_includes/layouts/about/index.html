@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/treetopbakery-favicon.ico" type="image/x-icon" />
+  <title>About Us</title>
+  <!-- Snipcart -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <!-- Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+
+
+
+  <style>
+    body {
+      font-family: "Sora", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="site-header">
+  <nav class="navbar">
+    <div class="nav-header">
+      <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
+
+      <!-- Hamburger button -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="">HOME</a></li>
+      <li><a href="/order-menu/" class="">MENU</a></li>
+      <li><a href="/coming-soon" class="active">ABOUT</a></li>
+      <li><a href="/coming-soon/" class="">CATERING</a></li>
+      <li><a href="/coming-soon/" class="order-btn ">ORDER NOW</a></li>
+      <li class="nav-cart snipcart-checkout" aria-label="Open shopping cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10
+    0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16
+    14.26l.84-1.68h8.99c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1
+    1 0 00-.87-1.49H6.21l-.94-2H1v2h3l3.6
+    7.59-1.35 2.45C5.11 16.37 6.02 18 7.5 18H19v-2H7.42c-.14
+    0-.25-.11-.26-.24z" />
+        </svg>
+        <span id="nav-cart-count">0</span>
+      </li>
+
+
+    </ul>
+
+  </nav>
+
+  <style>
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(0, 79, 45, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
+      color: #fff;
+      padding: 1rem 1.2rem;
+      box-sizing: border-box;
+    }
+
+    #site-header.scrolled {
+      background: #004F2D;
+      backdrop-filter: none;
+    }
+
+
+
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      font-family: "Playfair Display", serif;
+      line-height: 1.1;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .35s ease, opacity .25s ease;
+      transform-origin: center;
+      margin: 0;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      visibility: hidden;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
+    }
+
+    .nav-links.active {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .nav-links li {
+      margin: .6rem 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .5px;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c8e6c9;
+    }
+
+    .order-btn {
+      background: #895129;
+      padding: .5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 700;
+      
+    }
+
+    .order-btn:hover {
+      transition: background 0.3s ease;
+      background: #422a18;
+    }
+
+    .nav-links a.order-btn::after {
+      content: none !important;
+    }
+
+
+    .nav-cart {
+      display: none;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .nav-cart:hover {
+
+      opacity: 0.85;
+    }
+
+    .nav-cart svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+      margin-right: 5px;
+    }
+
+
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-size: 1.3rem;
+      }
+
+      .brand span {
+        display: inline;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #895129;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+      }
+
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
+
+      
+    }
+
+    @media (min-width: 1024px) {
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .brand {
+        font-size: 1.75rem;
+      }
+
+      .nav-links {
+        gap: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .nav-cart {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-cart svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+      }
+
+      .nav-cart:hover svg {
+        fill: #c8e6c9;
+      }
+    }
+  </style>
+
+  <script>
+
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
+
+
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+
+    (function waitForSnipcart() {
+      if (window.Snipcart && Snipcart.store && Snipcart.events) {
+        const floatingCart = document.getElementById('floating-cart');
+        const cartCount = document.getElementById('cart-count');
+        const navCartCount = document.getElementById('nav-cart-count');
+
+        const updateCart = () => {
+          const cart = Snipcart.store.getState().cart;
+          const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+
+
+          if (floatingCart && cartCount) {
+            cartCount.textContent = count;
+            floatingCart.style.display = count > 0 ? 'flex' : 'none';
+            cartCount.classList.remove('pop');
+            void cartCount.offsetWidth;
+            cartCount.classList.add('pop');
+          }
+
+
+          if (navCartCount) {
+            navCartCount.textContent = count;
+            navCartCount.classList.remove('pop');
+            void navCartCount.offsetWidth;
+            navCartCount.classList.add('pop');
+          }
+        };
+
+
+        Snipcart.events.on('item.added', updateCart);
+        Snipcart.events.on('item.removed', updateCart);
+        Snipcart.events.on('item.updated', updateCart);
+
+
+        Snipcart.events.on('cart.opened', () => {
+          if (floatingCart) floatingCart.style.display = 'none';
+        });
+
+
+        Snipcart.events.on('cart.closed', () => {
+          const cart = Snipcart.store.getState().cart;
+          const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+          if (floatingCart) floatingCart.style.display = count > 0 ? 'flex' : 'none';
+        });
+
+
+        if (floatingCart) {
+          floatingCart.addEventListener('click', () => {
+            Snipcart.api.theme.cart.open();
+          });
+        }
+
+        updateCart();
+      } else {
+        setTimeout(waitForSnipcart, 300);
+      }
+    })();
+  </script>
+
+</header>
+
+  <main>
+    
+<section class="about-section">
+  <div class="about-intro">
+    <h2>Our Story</h2>
+    <p>
+      Nestled among the trees of our community, <strong>Treetop Bakery</strong> began with a simple idea —
+      to bake bread that feels like home. We believe that every loaf, pastry, and cookie carries the warmth
+      of nature and the joy of sharing.
+    </p>
+  </div>
+
+  <div class="about-img">
+    <img src="/images/uploads/bakery-interior.jpg" alt="Inside Treetop Bakery" />
+  </div>
+
+  <div class="about-mission">
+    <h2>Our Mission</h2>
+    <p>
+      From hand-crafted sourdoughs to freshly baked croissants, we use only the finest natural ingredients.
+      Our goal is to bring people together — one loaf at a time — while staying true to our roots in
+      sustainability and community.
+    </p>
+  </div>
+
+  <div class="about-values">
+    <h2>What We Stand For</h2>
+    <ul>
+      <li>🌿 Sustainability — eco-friendly ingredients and packaging</li>
+      <li>❤️ Passion — everything baked with care</li>
+      <li>🤝 Community — supporting local farmers and families</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .about-section h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+
+  .about-intro, .about-mission, .about-values {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-intro p,
+  .about-mission p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: center;
+    color: #444;
+  }
+
+  .about-img {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .about-values ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .about-values li {
+    background: #e8f5e9;
+    color: #2e7d32;
+    display: inline-block;
+    margin: 0.4rem;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.1);
+  }
+
+  @media (max-width: 600px) {
+    .about-section {
+      padding: 1rem;
+    }
+    .about-values li {
+      display: block;
+      margin: 0.5rem auto;
+      width: 90%;
+    }
+  }
+</style>
+
+  </main>
+
+
+  <div id="floating-cart" class="snipcart-checkout custom-cart-btn hidden" aria-label="Open shopping cart">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10
+    0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16
+    14.26l.84-1.68h8.99c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1
+    1 0 00-.87-1.49H6.21l-.94-2H1v2h3l3.6
+    7.59-1.35 2.45C5.11 16.37 6.02 18 7.5 18H19v-2H7.42c-.14
+    0-.25-.11-.26-.24z"/>
+  </svg>
+  <span id="cart-count">0</span>
+</div>
+
+
+<style>
+  #floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3d2b1f; /* dark brown for bakery theme */
+  color: #fff;
+  padding: 0.8rem 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#floating-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+#floating-cart svg {
+  width: 22px;
+  height: 22px;
+}
+#cart-count {
+  background: #ff6347;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  position: relative;
+  top: -2px;
+  transition: background 0.3s;
+}
+
+
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+#cart-count.pop {
+  animation: pop 0.3s ease;
+}
+
+
+  @media (max-width: 1023px) {
+    #floating-cart {
+      display: flex;
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    #floating-cart {
+      display: none !important;
+    }
+  }
+</style>
+
+
+<script>
+(function waitForSnipcart() {
+  if (window.Snipcart && Snipcart.store && Snipcart.events) {
+    const floatingCart = document.getElementById('floating-cart');
+    const cartCount = document.getElementById('cart-count');
+
+
+    const updateCart = () => {
+      const cart = Snipcart.store.getState().cart;
+      const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = count;
+      floatingCart.style.display = count > 0 ? 'flex' : 'none';
+
+      cartCount.classList.remove('pop');
+      void cartCount.offsetWidth; 
+      cartCount.classList.add('pop');
+    };
+
+
+    Snipcart.events.on('item.added', updateCart);
+    Snipcart.events.on('item.removed', updateCart);
+    Snipcart.events.on('item.updated', updateCart);
+
+
+    Snipcart.events.on('cart.opened', () => {
+      floatingCart.style.display = 'none';
+    });
+
+
+    Snipcart.events.on('cart.closed', () => {
+      const cart = Snipcart.store.getState().cart;
+      const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+      floatingCart.style.display = count > 0 ? 'flex' : 'none';
+    });
+
+
+    floatingCart.addEventListener('click', () => {
+      Snipcart.api.theme.cart.open();
+    });
+
+
+    updateCart();
+  } else {
+
+    setTimeout(waitForSnipcart, 300);
+  }
+})();
+</script>
+
+
+
+
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="/images/treetop_logo_transparent.png" alt="Treetop Bakery Logo" class="footer-logo">
+      <p>Baked with love, rooted in flavor 🌿</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="quick-links">QUICK LINKS</p>
+      <a href="/">Home</a>
+      <a href="/menu/">Menu</a>
+      <a href="/about/">About</a>
+      <a href="/catering/">Catering</a>
+      <a href="/order/">Order Now</a>
+    </div>
+
+
+    <div class="footer-socials">
+      <p class="connect-text">Connect with us</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" class="social-circle"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="social-circle"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Twitter" class="social-circle"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Treetop Bakery. Brought to Life by
+      <a href="https://jalferez.netlify.app/">JA</a>
+    </p>
+  </div>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/0d0855f2a4.js" crossorigin="anonymous"></script>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background: #502419;
+      color: #ffffff;
+      padding: 2rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    /* Logo */
+    .footer-logo {
+      width: 270px;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-left p {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.6rem);
+      color: #e8f5e9;
+    }
+
+    .quick-links {
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.7vw + 0.8rem, 1.4rem);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      font-size: clamp(1rem, 0.8vw + 0.6rem, 1.3rem);
+    }
+
+    .footer-links a:hover {
+      color: #c8e6c9;
+    }
+
+    /* Socials section */
+    .footer-socials {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .connect-text {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.9vw + 0.7rem, 1.5rem);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .social-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: clamp(34px, 2.5vw + 20px, 50px);
+      height: clamp(34px, 2.5vw + 20px, 50px);
+      border-radius: 50%;
+      background-color: #3b1b14;
+      color: #ffffff;
+      font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1.3rem);
+      transition: all 0.3s ease;
+    }
+
+    .social-circle:hover {
+      background-color: #7b3f29;
+      transform: translateY(-3px);
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: clamp(0.8rem, 0.6vw + 0.5rem, 1rem);
+      opacity: 0.9;
+    }
+
+    .footer-bottom a {
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 796px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</footer>
+
+
+  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0" data-config-add-product-behavior="none"></div>
+
+  <!-- REMEMBER TO ALWAYS ADD THIS HERE BROO -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+</body>
+
+</html>

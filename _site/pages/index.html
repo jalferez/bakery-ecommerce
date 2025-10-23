@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/treetopbakery-favicon.ico" type="image/x-icon" />
+  <title>TreeTop Bakery Houston TX | Fresh Baked Goods &amp; Pastries</title>
+  <!-- Snipcart -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+  <!-- Font -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+ <script src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+
+
+
+  <style>
+    body {
+      font-family: "Sora", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="site-header">
+  <nav class="navbar">
+    <div class="nav-header">
+      <a href="/" class="brand">TREETOP <span>BAKERY</span></a>
+
+      <!-- Hamburger button -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="">HOME</a></li>
+      <li><a href="/order-menu/" class="">MENU</a></li>
+      <li><a href="/coming-soon" class="">ABOUT</a></li>
+      <li><a href="/coming-soon/" class="">CATERING</a></li>
+      <li><a href="/coming-soon/" class="order-btn ">ORDER NOW</a></li>
+      <li class="nav-cart snipcart-checkout" aria-label="Open shopping cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10
+    0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16
+    14.26l.84-1.68h8.99c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1
+    1 0 00-.87-1.49H6.21l-.94-2H1v2h3l3.6
+    7.59-1.35 2.45C5.11 16.37 6.02 18 7.5 18H19v-2H7.42c-.14
+    0-.25-.11-.26-.24z" />
+        </svg>
+        <span id="nav-cart-count">0</span>
+      </li>
+
+
+    </ul>
+
+  </nav>
+
+  <style>
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      background: rgba(0, 79, 45, 0.75);
+      backdrop-filter: blur(6px);
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
+      color: #fff;
+      padding: 1rem 1.2rem;
+      box-sizing: border-box;
+    }
+
+    #site-header.scrolled {
+      background: #004F2D;
+      backdrop-filter: none;
+    }
+
+
+
+    .navbar {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      font-family: "Playfair Display", serif;
+      line-height: 1.1;
+    }
+
+    .brand span {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .35s ease, opacity .25s ease;
+      transform-origin: center;
+      margin: 0;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      visibility: hidden;
+      transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
+    }
+
+    .nav-links.active {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .nav-links li {
+      margin: .6rem 0;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .5px;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #c8e6c9;
+    }
+
+    .order-btn {
+      background: #895129;
+      padding: .5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 700;
+      
+    }
+
+    .order-btn:hover {
+      transition: background 0.3s ease;
+      background: #422a18;
+    }
+
+    .nav-links a.order-btn::after {
+      content: none !important;
+    }
+
+
+    .nav-cart {
+      display: none;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .nav-cart:hover {
+
+      opacity: 0.85;
+    }
+
+    .nav-cart svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+      margin-right: 5px;
+    }
+
+
+    @media (min-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-size: 1.3rem;
+      }
+
+      .brand span {
+        display: inline;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        flex-direction: row;
+        gap: 1.5rem;
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+      }
+
+      .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: #895129;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+      }
+
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
+
+      
+    }
+
+    @media (min-width: 1024px) {
+      .navbar {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .brand {
+        font-size: 1.75rem;
+      }
+
+      .nav-links {
+        gap: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .nav-cart {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-cart svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+      }
+
+      .nav-cart:hover svg {
+        fill: #c8e6c9;
+      }
+    }
+  </style>
+
+  <script>
+
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      toggle.classList.toggle('open');
+    });
+
+
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 0);
+    });
+
+
+    (function waitForSnipcart() {
+      if (window.Snipcart && Snipcart.store && Snipcart.events) {
+        const floatingCart = document.getElementById('floating-cart');
+        const cartCount = document.getElementById('cart-count');
+        const navCartCount = document.getElementById('nav-cart-count');
+
+        const updateCart = () => {
+          const cart = Snipcart.store.getState().cart;
+          const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+
+
+          if (floatingCart && cartCount) {
+            cartCount.textContent = count;
+            floatingCart.style.display = count > 0 ? 'flex' : 'none';
+            cartCount.classList.remove('pop');
+            void cartCount.offsetWidth;
+            cartCount.classList.add('pop');
+          }
+
+
+          if (navCartCount) {
+            navCartCount.textContent = count;
+            navCartCount.classList.remove('pop');
+            void navCartCount.offsetWidth;
+            navCartCount.classList.add('pop');
+          }
+        };
+
+
+        Snipcart.events.on('item.added', updateCart);
+        Snipcart.events.on('item.removed', updateCart);
+        Snipcart.events.on('item.updated', updateCart);
+
+
+        Snipcart.events.on('cart.opened', () => {
+          if (floatingCart) floatingCart.style.display = 'none';
+        });
+
+
+        Snipcart.events.on('cart.closed', () => {
+          const cart = Snipcart.store.getState().cart;
+          const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+          if (floatingCart) floatingCart.style.display = count > 0 ? 'flex' : 'none';
+        });
+
+
+        if (floatingCart) {
+          floatingCart.addEventListener('click', () => {
+            Snipcart.api.theme.cart.open();
+          });
+        }
+
+        updateCart();
+      } else {
+        setTimeout(waitForSnipcart, 300);
+      }
+    })();
+  </script>
+
+</header>
+
+  <main>
+    
+
+
+
+<section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('/images/bakery_shop.webp');
+         background-position: center;
+         background-size: cover;
+         background-repeat: no-repeat;">
+  <div class="hero-overlay">
+    <h1>PURE JOY, <br> BAKED IN</h1>
+    <p>Freshly baked delights crafted with love and care every morning. From warm loaves to sweet pastries, all rooted from our passion for life.</p>
+    <a href="/menu/" class="btn-primary">View Menu</a>
+  </div>
+</section>
+
+
+<section>
+  <section class="three-row">
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/sourdough1.jpg" alt="Fresh Sourdough">
+        </div>
+        <div class="card-content">
+            <h3>Fresh Sourdough</h3>
+            <p>Crispy on the outside, soft on the inside. Baked daily using our 12-hour fermentation process.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/order-menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/Chocolate-Croissants.webp" alt="Chocolate Croissant">
+        </div>
+        <div class="card-content">
+            <h3>Chocolate Croissant</h3>
+            <p>Flaky layers filled with rich Belgian chocolate, your perfect morning indulgence.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/order-menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="card-image">
+            <img src="/images/uploads/artisan_baguette.webp" alt="Artisan Baguette">
+        </div>
+        <div class="card-content">
+            <h3>Artisan Baguette</h3>
+            <p>Golden and crusty on the outside, fluffy on the inside. The French classic, done right.</p>
+            <div class="card-buttons">
+                <a href="/order/" class="primary-btn">
+                    <img src="/images/shopping-bag-svgrepo-com.svg" alt="Shopping Bag Icon" class="icon" />
+                    <span>Order Now</span>
+                </a>
+
+
+                <a href="/order-menu/" class="secondary-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    <span>Details</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<style>
+    /* Card layout Mobile First */
+    .three-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 4rem auto;
+        padding: 1rem;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .card-content h3 {
+
+        color: #2e7d32;
+        font-size: 1.6rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .card-content p {
+        font-family: "Quicksand", sans-serif;
+        color: #444;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Button Wrapper */
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ddd;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        padding: 1rem 0;
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0;
+        background: #f8f8f8;
+        color: #2e7d32;
+        transition:
+            background 0.3s ease,
+            color 0.3s ease,
+            transform 0.25s ease;
+        outline: none;
+    }
+
+    .primary-btn+.secondary-btn {
+        border-left: 1px solid #ddd;
+    }
+
+    .primary-btn {
+        background: #ffffff;
+    }
+
+    .primary-btn .icon {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 0.4rem;
+        filter: invert(26%) sepia(72%) saturate(322%) hue-rotate(80deg) brightness(90%) contrast(90%);
+
+    }
+
+    .primary-btn:hover {
+        background: #6BAA75;
+        color: #1b5e20;
+        transform: translateY(-3px);
+    }
+
+    .secondary-btn {
+        background: #f5f5f5;
+    }
+
+    .secondary-btn:hover {
+        background: #6BAA75;
+        color: #1b5e20;
+        transform: translateY(-3px);
+    }
+
+    /* ICONS */
+    .icon {
+        margin-bottom: 0.4rem;
+        color: #2e7d32;
+        stroke-width: 2;
+    }
+
+    /* Media */
+    @media (min-width: 768px) {
+        .card {
+            flex-direction: row;
+            height: 320px;
+        }
+
+        .card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .card-image,
+        .card-content {
+            flex: 1;
+            width: 50%;
+        }
+
+        .card-image img {
+            height: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            padding: 2rem;
+        }
+
+        .card-buttons {
+            justify-content: stretch;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .icon {
+            margin: 0;
+        }
+    }
+</style>
+</section>
+
+
+
+<section>
+  <section class="rewards-section">
+  <div class="rewards-bg">
+    <div class="phone">
+      <div class="phone-screen">
+        <nav class="phone-nav">
+          <span class="phone-title">TREETOP BAKERY</span>
+        </nav>
+        <img src="/images/rewards_phone_bg.webp" alt="Bread" class="phone-image" />
+
+        <div class="phone-overlay">
+          <h3>Welcome to TB Rewards</h3>
+          <p>Join now to enjoy exclusive offers and treats.</p>
+          <span class="phone-btn">LET'S GET STARTED</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rewards-content">
+    <div class="rewards-top-row">
+      <div class="rewards-logo">
+        <img src="/images/treetop_logo_transparent.png" alt="Treetop Bakery Logo" />
+      </div>
+      <h2 class="rewards-title">REWARDS PROGRAM</h2>
+    </div>
+    <h2 class="rewards-subtitle">Earn, Redeem, Repeat</h2>
+    <p>
+      Earn points every time you visit and enjoy exclusive offers and treats.
+    </p>
+    <a href="/coming-soon/" class="btn-primary">Learn More</a>
+  </div>
+</section>
+
+<style>
+  .rewards-section {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #333;
+    background-color: #fdfaf7;
+    overflow: clip;
+  }
+
+  .rewards-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: url("/images/wood_board_bg.webp") center/cover no-repeat;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .rewards-section>* {
+    position: relative;
+    z-index: 1;
+  }
+
+  .rewards-bg {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: auto;
+    background: none;
+  }
+
+  /* Phone mockup */
+  .phone {
+    width: 220px;
+    height: 440px;
+    background: #000;
+    border-radius: 30px;
+    border: 10px solid #111;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: -80px;
+  }
+
+  .phone-title {
+    font-family: "Playfair Display", serif;
+  }
+
+  .phone-screen {
+    position: relative;
+    background: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phone-nav {
+    background: #f3e5d8;
+    padding: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+    color: #5b3a2e;
+    border-bottom: 1px solid #e2d0c1;
+  }
+
+
+  .phone-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 92%;
+    max-width: 200px;
+    padding: 1.2rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #5b3a2e;
+    z-index: 3;
+  }
+
+  .phone-overlay h3 {
+    font-size: 1rem;
+    margin: 0 0 .4rem;
+    font-weight: 700;
+  }
+
+  .phone-overlay p {
+    font-size: .85rem;
+    margin: 0 0 .9rem;
+    line-height: 1.3;
+  }
+
+
+  .phone-btn {
+    display: inline-block;
+    background: #d49a6a;
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+    cursor: default;
+    user-select: none;
+  }
+
+  .phone-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-screen::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, #f3e5d8 0%, #f3e5d8 60%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Rewards content */
+  .rewards-content {
+    margin-top: 6rem;
+    padding: 0 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rewards-content .rewards-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+
+  .rewards-content .rewards-subtitle::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 8px;
+    background-color: #d49a6a;
+  }
+
+  .rewards-content .rewards-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .rewards-content .rewards-logo img {
+    width: 180px;
+    height: auto;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+  }
+
+  .rewards-content .rewards-logo img:hover {
+    transform: scale(1.05);
+  }
+
+  .rewards-content h2 {
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .rewards-content p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-block;
+    background: #d49a6a;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: #b87e53;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: #d49a6a;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: #b87e53;
+  }
+
+  @media (min-width: 768px) {
+    .rewards-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 3rem;
+      gap: 3rem;
+    }
+
+    .rewards-bg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    .phone {
+      margin-bottom: 0;
+      width: 260px;
+      height: 520px;
+    }
+
+    .rewards-content {
+      max-width: 380px;
+      flex: 1;
+      margin: 0;
+    }
+
+    .rewards-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .rewards-content .rewards-logo {
+      margin: 0;
+    }
+
+    .rewards-content .rewards-logo img {
+      width: clamp(150px, 6vw, 180px);
+      height: auto;
+      display: block;
+    }
+
+
+    .rewards-content h2.rewards-title {
+      margin: 0;
+      font-size: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #ffffff;
+    }
+
+    .rewards-content .rewards-subtitle {
+      font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
+      font-weight: 400;
+      color: #ffffff;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .rewards-content .rewards-subtitle::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 15%;
+      transform: none;
+      width: 70%;
+      height: 6px;
+      background-color: #d49a6a;
+    }
+
+    .rewards-content p {
+      font-size: clamp(1rem, 0.6vw + 0.8rem, 1.4rem);
+      line-height: 1.6;
+      color: #ffffff;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .rewards-content .btn-primary {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+</style>
+</section>
+
+
+<section>
+  <section class="services-overview">
+    <div class="services-image">
+        <img src="/images/breadshot.jpg" alt="Fresh baked goods and coffee">
+    </div>
+
+    <!-- Service items -->
+    <div class="service-list">
+        <div class="service-item">
+            <img src="/images/bread2.svg" alt="Bakery Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Bakery</h3>
+                <div class="service-body">
+                    <p>A delicious variety of sweet and savory pastries, breads, and donuts, freshly baked every day.
+                    </p>
+                    <div class="service-buttons">
+                        <a href="/coming-soon/" class="btn-brown">ORDER NOW</a>
+                        <a href="/order-menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr class="divider">
+
+        <div class="service-item">
+            <img src="/images/cake.svg" alt="Cake Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Cakes</h3>
+                <div class="service-body">
+                    <p>Made by our master bakers and decorated to perfection, down to the last detail.</p>
+                    <div class="service-buttons">
+                        <a href="/coming-soon/" class="btn-brown">ORDER NOW</a>
+                        <a href="/order-menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="service-item">
+            <img src="/images/catering.svg" alt="Catering Icon" class="service-icon">
+
+            <div class="service-content">
+                <h3>Catering</h3>
+                <div class="service-body">
+                    <p>Power your gathering with delightful baked goods from Treetop Bakery.</p>
+                    <div class="service-buttons">
+                        <a href="/coming-soon/" class="btn-brown">ORDER NOW</a>
+                        <a href="/order-menu/" class="btn-outline">DETAILS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <style>
+        .services-overview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #fff;
+            color: #333;
+            padding: 1.5rem 1rem;
+            gap: 2rem;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .service-icon {
+            width: clamp(100px, 8vw + 50px, 110px);
+            height: auto;
+            margin-bottom: 0.8rem;
+        }
+
+
+        .service-item h3 {
+            font-family: "Playfair Display", serif;
+            font-weight: 700;
+            font-size: clamp(2.2rem, 3vw + 1rem, 2.8rem);
+            color: #004F2D;
+            margin: 0;
+        }
+
+        .service-item p {
+            font-family: "Sora", sans-serif;
+            font-size: clamp(.5rem, 1vw + 1rem, 1.35rem);
+            color: #333;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0 0.5rem;
+        }
+
+        .service-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+        }
+
+        .btn-brown {
+            background: #895129;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 25px;
+            padding: 0.45rem 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-brown:hover {
+            background: #c9773c;
+        }
+
+        .btn-outline {
+            background: #f5f0eb;
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 25px;
+            padding: 0.6rem 1.5rem;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #e0d7cf;
+        }
+
+        .divider {
+            width: 80%;
+            border: none;
+            border-bottom: 1.5px dotted #ccc;
+        }
+
+        /* Mobile Styles */
+
+        @media (min-width: 425px) {
+            .service-item {
+                display: grid;
+                grid-template-columns: 90px 1fr;
+                column-gap: 1rem;
+                align-items: center;
+                text-align: left;
+            }
+
+            .service-icon {
+                grid-row: 1 / span 2;
+                width: 85px;
+                height: auto;
+                justify-self: center;
+                align-self: center;
+                transform: translateY(0px);
+            }
+
+            .service-content {
+                display: flex;
+                flex-direction: column;
+                width: 246.5px;
+            }
+
+            .service-content h3 {
+                margin-bottom: 0.2rem;
+                transform: translateX(6px);
+                font-size: clamp(2rem, 1vw + 1.1rem, 2.3rem);
+            }
+
+            .service-item p {
+                margin: 0;
+                line-height: 1.5;
+                font-size: clamp(1rem, 0.8vw + 0.8rem, 1.2rem);
+            }
+
+            .service-body {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .service-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                align-items: center;
+            }
+
+            .service-buttons a {
+                text-align: center;
+                width: 100%;
+                max-width: 180px;
+                padding: 0.45rem 1rem;
+                font-size: clamp(0.9rem, 0.6vw + 0.7rem, 1rem);
+            }
+        }
+
+
+        @media (min-width: 768px) {
+
+            .services-image {
+                width: 100%;
+                max-width: 1200px;
+                overflow: hidden;
+                border-radius: 6px;
+            }
+
+            .services-image img {
+                width: 100%;
+                height: 240px;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                filter: brightness(0.95);
+            }
+
+            .service-item {
+                display: grid;
+                grid-template-columns: 90px 1fr;
+                column-gap: 1.2rem;
+                align-items: center;
+                text-align: left;
+            }
+
+            .service-content {
+                width: auto;
+                max-width: 450px;
+            }
+
+            .service-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .service-buttons a {
+                width: auto;
+                min-width: 130px;
+                padding: 0.5rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 960px) {
+            .services-overview {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+                gap: 3rem;
+                text-align: left;
+                padding: 4rem 2rem;
+            }
+
+
+            .services-image {
+                flex: 0 0 35%;
+                height: auto;
+                max-height: none;
+                border-radius: 12px;
+                overflow: hidden;
+                align-self: stretch;
+            }
+
+            .services-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+                border-radius: 12px;
+            }
+
+
+            .service-list {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 3rem;
+                max-width: 650px;
+            }
+
+            .service-item {
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                align-items: center;
+                column-gap: 1.5rem;
+            }
+
+            .service-icon {
+                width: 100px;
+                height: auto;
+                justify-self: center;
+            }
+
+            .service-content {
+                width: 100%;
+                max-width: none;
+            }
+
+            .service-content h3 {
+                font-size: clamp(2.2rem, 1vw + 1.4rem, 2.7rem);
+                margin-bottom: 0.5rem;
+            }
+
+            .service-item p {
+                font-size: clamp(1.1rem, 0.6vw + 0.9rem, 1.3rem);
+                line-height: 1.7;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+
+            .service-buttons a {
+                padding: 0.6rem 1.3rem;
+                min-width: 140px;
+                text-align: center;
+            }
+        }
+    </style>
+</section>
+</section>
+
+<section>
+  <section class="welcome-section">
+  <div class="welcome-content">
+    <h2>Welcome to your local bakery café</h2>
+    <h3>Baked with love, rooted in flavor.</h3>
+    <p>
+      At Treetop Bakery, every loaf, pastry, and brew is crafted with care.
+      We believe in simple ingredients, warm smiles, and the aroma of fresh bread that feels like home.
+    </p>
+  </div>
+
+  <div class="welcome-video">
+    <video autoplay muted loop playsinline>
+      <source src="/videos/TB_vid.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <style>
+    .welcome-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #fffaf5;
+      color: #3b1b14;
+      overflow: hidden;
+      gap: 2rem;
+    }
+
+    .welcome-content h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+      color: #004F2D;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    .welcome-content h3 {
+      font-family: "Sora", sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.2rem, 2vw + 0.8rem, 2rem);
+      color: #895129;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-content p {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1rem, 1vw + 0.8rem, 1.3rem);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #4b2e22;
+    }
+
+    .welcome-video {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .welcome-video video {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Medias */
+
+    @media (min-width: 768px) {
+      .welcome-section {
+        padding: 5rem 2rem;
+        gap: 3rem;
+      }
+
+      .welcome-video video {
+        height: 380px;
+      }
+    }
+
+
+    @media (min-width: 1024px) {
+      .welcome-section {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        text-align: left;
+      }
+
+      .welcome-content {
+        flex: 1;
+        max-width: 600px;
+      }
+
+      .welcome-video {
+        flex: 1;
+        max-width: 600px;
+        height: 400px;
+      }
+
+      .welcome-video video {
+        height: 100%;
+      }
+    }
+  </style>
+</section>
+</section>
+
+<style>
+  .hero {
+    height: 93vh;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.45));
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .hero-overlay {
+    max-width: 800px;
+    padding: 1rem;
+    z-index: 2;
+    transform: translateY(-2rem);
+  }
+
+
+  .hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.8rem, 7vw + 1rem, 6.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
+
+  .hero p {
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  a.btn-primary {
+    display: inline-block;
+    background: #ffffff;
+    color: #2e7d32;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition:
+      transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+      box-shadow 0.35s ease,
+      background 0.35s ease;
+  }
+
+  a.btn-primary:hover {
+    background: #bfe6c2;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  }
+
+
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 90vh;
+      background-attachment: scroll;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+  </main>
+
+
+  <div id="floating-cart" class="snipcart-checkout custom-cart-btn hidden" aria-label="Open shopping cart">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10
+    0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16
+    14.26l.84-1.68h8.99c.75 0 1.41-.41 1.75-1.03l3.58-6.49a1
+    1 0 00-.87-1.49H6.21l-.94-2H1v2h3l3.6
+    7.59-1.35 2.45C5.11 16.37 6.02 18 7.5 18H19v-2H7.42c-.14
+    0-.25-.11-.26-.24z"/>
+  </svg>
+  <span id="cart-count">0</span>
+</div>
+
+
+<style>
+  #floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3d2b1f; /* dark brown for bakery theme */
+  color: #fff;
+  padding: 0.8rem 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#floating-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+#floating-cart svg {
+  width: 22px;
+  height: 22px;
+}
+#cart-count {
+  background: #ff6347;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  position: relative;
+  top: -2px;
+  transition: background 0.3s;
+}
+
+
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+#cart-count.pop {
+  animation: pop 0.3s ease;
+}
+
+
+  @media (max-width: 1023px) {
+    #floating-cart {
+      display: flex;
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    #floating-cart {
+      display: none !important;
+    }
+  }
+</style>
+
+
+<script>
+(function waitForSnipcart() {
+  if (window.Snipcart && Snipcart.store && Snipcart.events) {
+    const floatingCart = document.getElementById('floating-cart');
+    const cartCount = document.getElementById('cart-count');
+
+
+    const updateCart = () => {
+      const cart = Snipcart.store.getState().cart;
+      const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+      cartCount.textContent = count;
+      floatingCart.style.display = count > 0 ? 'flex' : 'none';
+
+      cartCount.classList.remove('pop');
+      void cartCount.offsetWidth; 
+      cartCount.classList.add('pop');
+    };
+
+
+    Snipcart.events.on('item.added', updateCart);
+    Snipcart.events.on('item.removed', updateCart);
+    Snipcart.events.on('item.updated', updateCart);
+
+
+    Snipcart.events.on('cart.opened', () => {
+      floatingCart.style.display = 'none';
+    });
+
+
+    Snipcart.events.on('cart.closed', () => {
+      const cart = Snipcart.store.getState().cart;
+      const count = cart.items.items.reduce((total, item) => total + item.quantity, 0);
+      floatingCart.style.display = count > 0 ? 'flex' : 'none';
+    });
+
+
+    floatingCart.addEventListener('click', () => {
+      Snipcart.api.theme.cart.open();
+    });
+
+
+    updateCart();
+  } else {
+
+    setTimeout(waitForSnipcart, 300);
+  }
+})();
+</script>
+
+
+
+
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="/images/treetop_logo_transparent.png" alt="Treetop Bakery Logo" class="footer-logo">
+      <p>Baked with love, rooted in flavor 🌿</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="quick-links">QUICK LINKS</p>
+      <a href="/">Home</a>
+      <a href="/menu/">Menu</a>
+      <a href="/about/">About</a>
+      <a href="/catering/">Catering</a>
+      <a href="/order/">Order Now</a>
+    </div>
+
+
+    <div class="footer-socials">
+      <p class="connect-text">Connect with us</p>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram" class="social-circle"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok" class="social-circle"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Twitter" class="social-circle"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Treetop Bakery. Brought to Life by
+      <a href="https://jalferez.netlify.app/">JA</a>
+    </p>
+  </div>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/0d0855f2a4.js" crossorigin="anonymous"></script>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      background: #502419;
+      color: #ffffff;
+      padding: 2rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    /* Logo */
+    .footer-logo {
+      width: 270px;
+      height: auto;
+      display: block;
+      margin: 0 auto 2rem;
+    }
+
+    .footer-left p {
+      margin-top: 0.5rem;
+      font-weight: 400;
+      font-size: clamp(1rem, 1vw + 0.9rem, 1.6rem);
+      color: #e8f5e9;
+    }
+
+    .quick-links {
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.7vw + 0.8rem, 1.4rem);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      font-size: clamp(1rem, 0.8vw + 0.6rem, 1.3rem);
+    }
+
+    .footer-links a:hover {
+      color: #c8e6c9;
+    }
+
+    /* Socials section */
+    .footer-socials {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .connect-text {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #a5d6a7;
+      font-size: clamp(1rem, 0.9vw + 0.7rem, 1.5rem);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .social-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: clamp(34px, 2.5vw + 20px, 50px);
+      height: clamp(34px, 2.5vw + 20px, 50px);
+      border-radius: 50%;
+      background-color: #3b1b14;
+      color: #ffffff;
+      font-size: clamp(0.9rem, 0.5vw + 0.6rem, 1.3rem);
+      transition: all 0.3s ease;
+    }
+
+    .social-circle:hover {
+      background-color: #7b3f29;
+      transform: translateY(-3px);
+    }
+
+    /* Footer bottom */
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: clamp(0.8rem, 0.6vw + 0.5rem, 1rem);
+      opacity: 0.9;
+    }
+
+    .footer-bottom a {
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 796px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</footer>
+
+
+  <div hidden id="snipcart" data-api-key="OWExNzA3MjctMTVhNC00MDU5LWI5NTUtYWUzZjdlMmMyNjgyNjM4OTYwODc0NzM2NzQ0NDM0" data-config-add-product-behavior="none"></div>
+
+  <!-- REMEMBER TO ALWAYS ADD THIS HERE BROO -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+</body>
+
+</html>

@@ -33,7 +33,7 @@ eleventyConfig.addCollection("menu", function(collectionApi) {
 
   return {
     dir: {
-      input: ".",
+      input: "pages",
       includes: "_includes",
       output: "_site"
     }
