@@ -392,7 +392,7 @@
     <h1>Treetop Bakery</h1>
     <p>Find your nearest Treetop Bakery below.</p>
 
-  
+ 
     <div class="search-box">
       <input
         type="text"
@@ -405,11 +405,23 @@
     </div>
   </div>
 
+
   <div id="map"></div>
+
+
+  <div id="location-card" class="location-card hidden">
+    <h2 id="loc-name"></h2>
+    <p id="loc-address"></p>
+    <p id="loc-phone"></p>
+
+    <div class="card-buttons">
+      <button id="order-btn">Order Online</button>
+      <button id="directions-btn">Get Directions</button>
+    </div>
+  </div>
 </section>
 
 <style>
-
   .choose-location {
     background: #f9f7f3;
     text-align: center;
@@ -468,16 +480,69 @@
   }
 
   #map {
-    width: 100%;
-    max-width: 900px;
-    height: 450px;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
     z-index: 1;
     margin-top: 2rem;
   }
 
-  
+
+  .location-card {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    text-align: left;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .location-card.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+  }
+
+  .location-card h2 {
+    color: #422a18;
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .location-card p {
+    color: #5c3d2e;
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+
+  .card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .card-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background: #5c3d2e;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .card-buttons button:hover {
+    background: #422a18;
+  }
+
   @media (min-width: 768px) {
     .choose-location {
       padding-top: 7rem;
@@ -503,11 +568,17 @@
     }
 
     #map {
-      height: 500px;
-      width: 90%;
+      aspect-ratio: 16 / 8;
+    }
+
+    .location-card {
+      padding: 2rem;
+    }
+
+    .location-card h2 {
+      font-size: 1.5rem;
     }
   }
-
 
   @media (min-width: 1024px) {
     .choose-location {
@@ -516,11 +587,10 @@
     }
 
     #map {
-      height: 550px;
+      aspect-ratio: 16 / 7;
     }
   }
 
-  
   .leaflet-popup-content button {
     background: #5c3d2e;
     color: white;
@@ -543,22 +613,74 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-   
-    const map = L.map("map").setView([29.7604, -95.3698], 11);
+    const map = L.map("map", {
+      zoomControl: true,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      dragging: false,
+      tap: false
+    }).setView([29.7604, -95.3698], 11);
 
-    // Add OpenStreetMap tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors",
+      attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
-    
+    function showMapHint(message) {
+      const hint = document.createElement("div");
+      hint.textContent = message;
+      hint.style.position = "absolute";
+      hint.style.top = "15px";
+      hint.style.left = "50%";
+      hint.style.transform = "translateX(-50%)";
+      hint.style.background = "rgba(66, 42, 24, 0.9)";
+      hint.style.color = "#fff";
+      hint.style.padding = "8px 14px";
+      hint.style.borderRadius = "8px";
+      hint.style.fontSize = "0.9rem";
+      hint.style.zIndex = "9999";
+      hint.style.opacity = "0";
+      hint.style.transition = "opacity 0.3s ease";
+      document.getElementById("map").appendChild(hint);
+      setTimeout(() => (hint.style.opacity = "1"), 100);
+      setTimeout(() => {
+        hint.style.opacity = "0";
+        setTimeout(() => hint.remove(), 500);
+      }, 3000);
+    }
+
+    function enableTouchGestures() {
+      showMapHint("Use two fingers to move the map");
+      map.getContainer().addEventListener("touchstart", (e) => {
+        if (e.touches.length === 2) {
+          map.dragging.enable();
+          map.scrollWheelZoom.enable();
+        }
+      });
+      map.getContainer().addEventListener("touchend", () => {
+        map.dragging.disable();
+        map.scrollWheelZoom.disable();
+      });
+    }
+
+    function enableDesktopBehavior() {
+      showMapHint("Hold CTRL + scroll to zoom the map");
+      map.dragging.enable();
+      const c = map.getContainer();
+      c.addEventListener("wheel", (e) => {
+        if (e.ctrlKey) map.scrollWheelZoom.enable();
+        else map.scrollWheelZoom.disable();
+      });
+    }
+
+    if (window.innerWidth <= 768) enableTouchGestures();
+    else if (window.innerWidth >= 1024) enableDesktopBehavior();
+
     const locations = [
-      { name: "Treetop North", coords: [29.8304, -95.3908], hours: "Open 7AM – 5PM" },
-      { name: "Treetop Central", coords: [29.7604, -95.3698], hours: "Open 6:30AM – 6PM" },
-      { name: "Treetop South", coords: [29.7004, -95.4008], hours: "Open 8AM – 4PM" },
+      { name: "Treetop North", coords: [29.8304, -95.3908], hours: "Open 7AM – 5PM", address: "1105 W 34th St, Houston, TX 77018", phone: "(832) 555-1105" },
+      { name: "Treetop Central", coords: [29.7604, -95.3698], hours: "Open 6:30AM – 6PM", address: "2500 Main St, Houston, TX 77002", phone: "(832) 555-2500" },
+      { name: "Treetop South", coords: [29.7004, -95.4008], hours: "Open 8AM – 4PM", address: "7900 Kirby Dr, Houston, TX 77030", phone: "(832) 555-7900" }
     ];
 
-   
     const markers = locations.map((loc) => {
       const marker = L.marker(loc.coords).addTo(map);
       marker.bindPopup(
@@ -569,13 +691,12 @@
       return marker;
     });
 
-    
     document.getElementById("search-btn").addEventListener("click", function () {
       const zip = document.getElementById("zipcode").value.trim();
       if (!zip) return alert("Please enter a ZIP code!");
-
-      
-      fetch(`https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=US&format=json`)
+      fetch(`https://nominatim.openstreetmap.org/search?postalcode=${zip}&country=US&format=json`, {
+        headers: { "User-Agent": "TreetopBakeryMap/1.0 (https://treetopbakery.netlify.app)" }
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.length === 0) return alert("ZIP code not found.");
@@ -585,7 +706,6 @@
         .catch(() => alert("Error finding location. Try again."));
     });
 
-    // Use current location
     document.getElementById("geo-btn").addEventListener("click", function () {
       if (!navigator.geolocation) return alert("Geolocation not supported.");
       navigator.geolocation.getCurrentPosition(
@@ -600,7 +720,6 @@
     function findNearest(userCoords) {
       let closest = null;
       let minDist = Infinity;
-
       locations.forEach((loc) => {
         const dist = distance(userCoords, loc.coords);
         if (dist < minDist) {
@@ -608,15 +727,13 @@
           closest = loc;
         }
       });
-
       if (closest) {
         map.setView(closest.coords, 13);
-        alert("Nearest bakery: " + closest.name);
         markers.find(m => m.getLatLng().lat === closest.coords[0]).openPopup();
+        showLocationCard(closest);
       }
     }
 
- 
     function distance(coord1, coord2) {
       const R = 6371;
       const dLat = (coord2[0] - coord1[0]) * Math.PI / 180;
@@ -627,15 +744,32 @@
         Math.cos(coord2[0] * Math.PI / 180) *
         Math.sin(dLon / 2) * Math.sin(dLon / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c; 
+      return R * c;
+    }
+
+    window.selectLocation = function (name) {
+      const selected = locations.find(l => l.name === name);
+      if (!selected) return;
+      localStorage.setItem("chosenLocation", name);
+      showLocationCard(selected);
+    };
+
+    function showLocationCard(loc) {
+      const card = document.getElementById("location-card");
+      document.getElementById("loc-name").textContent = loc.name;
+      document.getElementById("loc-address").textContent = loc.address;
+      document.getElementById("loc-phone").textContent = loc.phone;
+      card.classList.remove("hidden");
+      document.getElementById("order-btn").onclick = () => window.location.href = "/menu/";
+      document.getElementById("directions-btn").onclick = () => window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`, "_blank");
+    }
+
+    const saved = localStorage.getItem("chosenLocation");
+    if (saved) {
+      const prev = locations.find(l => l.name === saved);
+      if (prev) showLocationCard(prev);
     }
   });
-
-  function selectLocation(name) {
-    localStorage.setItem("chosenLocation", name);
-    alert("You chose " + name + "!");
-    window.location.href = "/menu/";
-  }
 </script>
 
   </main>
